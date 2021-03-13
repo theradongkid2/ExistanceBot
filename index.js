@@ -19,7 +19,8 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.id === "763567159871406080"){
     counter++;
-    if(counter % 3 === 0) message.channel.send("mm");
+    console.log(counter)
+    if(counter % 4 === 0) message.channel.send("mm");
   }
 })
 client.on("message", async message => {
