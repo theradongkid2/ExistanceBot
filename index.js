@@ -184,6 +184,13 @@ client.on("message", async message => {
     var role = message.guild.roles.find(role => role.name === "Emperor");
     message.member.addRole(role);
   }
+
+  if(command === "adminunaboose"){
+    if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Marquis", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    var role = message.guild.roles.find(role => role.name === "Emperor");
+    message.member.removeRole(role);
+  }
 });
 
 //Client Login
