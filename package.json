@@ -1,5 +1,5 @@
 {
-    "name": "kohbot1",
+    "name": "existencebot",
     "version": "1.0.0",
     "description": "Discord Bot for the Existence Server",
     "main": "index.js",
