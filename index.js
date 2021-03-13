@@ -91,7 +91,7 @@ client.on("message", async message => {
       if(!reason){reason = "No reason provided"};
     
       const warnEmbed = {
-        color: 0x9932CC,
+        color: 0xFF69B4,
         title: `Warn Log:`,
         thumbnail: {
           url: member.user.avatarURL
@@ -105,7 +105,7 @@ client.on("message", async message => {
         timestamp: new Date(),
           footer: {
               text: 'ExistenceBot',
-              icon_url: 'https://cdn.discordapp.com/avatars/730004103719288904/ce269b42ef41f924bdeb4e3de9d0cb26.png?size=2048',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
           },
       };
       message.channel.send({ embed: warnEmbed });
@@ -125,7 +125,7 @@ client.on("message", async message => {
           let nickname = member ? member.displayName : null;
         if(member) {
           const userEmbed = {
-            color: 0x9932CC,
+            color: 0xFF69B4,
             title: `${nickname}`,
             thumbnail: {
               url: member.user.avatarURL
@@ -147,7 +147,7 @@ client.on("message", async message => {
           timestamp: new Date(),
           footer: {
               text: 'ExistenceBot',
-              icon_url: 'https://cdn.discordapp.com/avatars/730004103719288904/ce269b42ef41f924bdeb4e3de9d0cb26.png?size=2048',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
           },
           }
           
