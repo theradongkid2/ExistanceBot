@@ -1,26 +1,26 @@
 {
-    "name": "existencebot",
-    "version": "1.0.0",
-    "description": "Discord Bot for the Existence Server",
-    "main": "index.js",
-    "engines": {
-      "node": "8.x"
-    },
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/theradongkid2/ExistenceBot"
-    },
-    "keywords": [
-      "heroku",
-      "discord.js"
-    ],
-    "author": "Joshua Koh, Tony Liang",
-    "license": "Apache 2.0",
-    "dependencies": {
-      "discord.js": "^11.3.0"
-    }
+  "name": "existencebot",
+  "version": "1.0.0",
+  "description": "Discord Bot",
+  "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theradongkid2/ExistenceBot"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Joshua Koh",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "discord.js": "^11.3.0"
   }
+}
