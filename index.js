@@ -98,7 +98,7 @@ client.on("message", async message => {
         },
         fields: [
           {
-          name: `Warned User: @${nickname}`,
+          name: `Warned User: ${nickname}`,
           value: `Warn Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
           },
         ],
