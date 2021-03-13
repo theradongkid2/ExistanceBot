@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.token;
+var counter = 0;
 
 
 //Terminal User Interface
@@ -14,6 +15,13 @@ client.on("ready", () => {
     });
 });
 
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.id === "763567159871406080"){
+    counter++;
+    if(counter % 3 === 0) message.channel.send("mm");
+  }
+})
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
