@@ -8,12 +8,7 @@ const token = process.env.token;
 client.on("ready", () => {
   console.log(`Existence Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   client.user.setActivity(`Having an Existential Crisis`);
-
-});
-
-client.on('ready', () => {
-    // List servers the bot is connected to
-    console.log("Servers:");
+  console.log("Servers:");
     client.guilds.forEach((guild) => {
         console.log(" - " + guild.name);
     });
