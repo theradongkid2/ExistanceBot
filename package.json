@@ -12,13 +12,13 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/the"
+      "url": "git+https://github.com/theradongkid2/ExistenceBot"
     },
     "keywords": [
       "heroku",
       "discord.js"
     ],
-    "author": "Joshua Koh",
+    "author": "Joshua Koh, Tony Liang",
     "license": "Apache 2.0",
     "dependencies": {
       "discord.js": "^11.3.0"
