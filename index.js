@@ -168,45 +168,6 @@ client.on("message", async message => {
         messageReaction.react('👎'); 
     });
   }
-
-  if (command === "kill"){
-    const greetingresponse = [
-      'fried',
-      'roasted',
-      'machined gunned',
-      'slained',
-      "earraped",
-      "raped",
-      "burned",
-      "boiled",
-      "braised",
-      "fenced",
-      "poked",
-      "slapped",
-      "shouted at",
-      "kissed",
-      "thew keyboards at",
-      "whacked",
-      "headshot",
-      "bullied",
-    ]
-  
-    const user = message.mentions.members.first();
-    const messageAuthor = message.author
-    const rn = rng(18)
-    var killMessage = greetingresponse[rn]
-    message.channel.send(`${messageAuthor} ${killMessage} ${user} to death`)
-    message.delete().catch(O_o=>{}); 
-  }
-  
-  if(command === "celebration"){
-    if(message.guild.id() == '747406501819318272') return
-    message.channel.send("AYYYY WOOHHOOOOIOOO CELEBRATION OMG COOL")
-    message.channel.send("🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊🎊")
-    message.channel.send("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉")
-    message.channel.send("🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳")
-    message.channel.send("AYYYY WOOHHOOOOIOOO CELEBRATION OMG COOL")
-  }
 });
 
 //Client Login
