@@ -30,7 +30,7 @@ client.on("message", async message => {
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   };
   if(command === "purge") {
-    if(!message.member.roles.some(r=>["Booster", "Admin", "Owner", "Senior Admin/ Vice Owner", "Admin 1", "Admin 2", "Admin 3", "Trial Admin", "Minor Mod", "Mod", "Moderator", "Purple"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Marquis", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
@@ -41,7 +41,7 @@ client.on("message", async message => {
     }
   
      if(command === "kick") {
-      if(!message.member.roles.some(r=>["Booster", "Admin", "Owner", "Senior Admin/ Vice Owner", "Admin 1", "Admin 2", "Admin 3", "Trial Admin", "Minor Mod", "Mod", "Moderator", "Canva Megachad", "Purple"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Marquis", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
       if(!member)
@@ -58,7 +58,7 @@ client.on("message", async message => {
   
   
     if(command === "ban") {
-      if(!message.member.roles.some(r=>["Booster", "Admin", "Owner", "Senior Admin/ Vice Owner", "Admin 1", "Admin 2", "Admin 3", "Trial Admin", "Minor Mod", "Mod", "Canva Megachad", "Purple"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Marquis", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       
       let member = message.mentions.members.first();
@@ -77,7 +77,7 @@ client.on("message", async message => {
   
 
   if(command === "warn"){
-    if(!message.member.roles.some(r=>["Booster", "Admin", "Owner", "Senior Admin/ Vice Owner", "Admin 1", "Admin 2", "Admin 3", "Trial Admin", "Minor Mod", "Mod", "Moderator", "Harry Liang", "Purple"].includes(r.name)))
+    if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Marquis", "Ruse"].includes(r.name)))
         return message.reply("Sorry, you don't have permissions to use this!");
   
     let moderator = message.member.user
