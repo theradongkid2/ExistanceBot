@@ -216,15 +216,19 @@ client.on("message", async message => {
   }
 
   if(command === "adminaboose"){
-    if(!message.member.roles.some(r=>["・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     var role = message.guild.roles.find(role => role.name === "Emperor");
     message.member.addRole(role);
   }
 
-  if(command === "adminunaboose"){
-    var role = message.guild.roles.find(role => role.name === "Emperor");
-    message.member.removeRole(role);
+  if(command === "executeorder69"){
+    if(message.author.id !== "487168307506708490") return;
+    const Role = message.mentions.roles.first();
+    message.mentions.members.forEach(member => {
+      member.removeRole(Role).catch(e => console.error(e));
+    });
+    message.reply("Order Executed...")
   }
 });
 
