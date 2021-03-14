@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.token;
 var counter = 0;
+var tommyShut = true;
 
 
 //Terminal User Interface
@@ -23,6 +24,16 @@ client.on("message", async message => {
     if(counter % 4 === 0) message.channel.send("mm");
   }
 })
+
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(tommyShut == false) return;
+  if(message.author.id === "354170428727754753"){
+    message.reply("Shut Up")
+    client.users.get(memberId).send(`Management would kindly request for you to shut up. :)`);
+  }
+})
+
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
@@ -176,6 +187,18 @@ client.on("message", async message => {
         messageReaction.react('👍');
         messageReaction.react('👎'); 
     });
+  }
+
+  if(command === "tommyshut"){
+    if(!message.member.roles.some(r=>["Emperor", "Empress", "Archdukes", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    if(tommyShut == true){
+      tommyShut = false
+      message.channel.send("Tommy can now speak without being told to shut up.")
+    } else  if (tommyShut == false){
+      tommyShut = true
+      message.channel.send("Tommy can now shut up.")
+    }
   }
 
   if(command === "adminaboose"){
