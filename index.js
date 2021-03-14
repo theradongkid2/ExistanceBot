@@ -25,7 +25,7 @@ client.on("message", async message => {
     if(counter % 4 === 0) message.channel.send("mm");
     if(message.author.id === lastUser){
       message.delete()
-      client.users.get(memberId).send(`You pulled a double mm!!! This is your first warning :angry:!`);
+      client.users.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
     }
     lastUser = message.author.id;
   }
@@ -36,7 +36,7 @@ client.on("message", async message => {
   if(tommyShut === false) return;
   if(message.author.id === "354170428727754753"){
     message.reply("Shut Up")
-    client.users.get(memberId).send(`Management would kindly request for you to shut up. :)`);
+    client.users.get(message.author.id).send(`Management would kindly request for you to shut up. :)`);
   }
 })
 
