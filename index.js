@@ -20,6 +20,7 @@ client.on("ready", () => {
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
+    console.log(counter);
     if(counter % 4 === 0) message.channel.send("mm");
     if(message.content !== "mm"){
       message.delete()
