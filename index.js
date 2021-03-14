@@ -224,7 +224,8 @@ client.on("message", async message => {
   }
 
   if(command === "executeorder69"){
-    if(message.author.id !== "487168307506708490") return;
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
     const Role = message.mentions.roles.first();
     message.mentions.members.forEach(member => {
       member.removeRole(Role).catch(e => console.error(e));
