@@ -218,8 +218,9 @@ client.on("message", async message => {
   if(command === "adminaboose"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    var role = message.guild.roles.find(role => role.name === "Emperor");
+    var role = message.guild.roles.find(role => role.name === "・ ── ・ Emperor ・ ── ・");
     message.member.addRole(role);
+    message.delete()
   }
 
   if(command === "executeorder69"){
