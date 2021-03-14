@@ -4,6 +4,7 @@ const config = require("./config.json");
 const token = process.env.token;
 var counter = 0;
 var tommyShut = true;
+var lastUser = "819852916172914699"
 
 
 //Terminal User Interface
@@ -22,6 +23,11 @@ client.on("message", async message => {
     counter++;
     console.log(counter);
     if(counter % 4 === 0) message.channel.send("mm");
+    if(message.author.id === lastUser){
+      message.delete()
+      client.users.get(memberId).send(`You pulled a double mm!!! This is your first warning :angry:!`);
+    }
+    lastUser = message.author.id;
   }
 })
 
