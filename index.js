@@ -18,7 +18,6 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  if(message.author.bot) return;
   if(message.channel.id === "763567159871406080"){
     counter++;
     console.log(counter);
@@ -35,6 +34,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(tommyShut === false) return;
   if(message.author.id === "354170428727754753"){
+    if(message.channel.id === "763567159871406080") return;
     message.reply("Shut Up")
     client.users.get(message.author.id).send(`Management would kindly request for you to shut up. :)`);
   }
