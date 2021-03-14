@@ -142,7 +142,7 @@ client.on("message", async message => {
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
           },
       };
-      client.channels.get("767659295230918676").send({ embed: warnEmbed });
+      message.channel.send({ embed: warnEmbed });
       client.users.get(memberId).send(`You have been warned in ${server} for ${reason}`);
   };
   
