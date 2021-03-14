@@ -22,6 +22,10 @@ client.on("message", async message => {
     counter++;
     console.log(counter);
     if(counter % 4 === 0) message.channel.send("mm");
+    if(message.content !== "mm"){
+      message.delete()
+      client.users.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
+    }
     if(message.author.id === lastUser){
       message.delete()
       client.users.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
