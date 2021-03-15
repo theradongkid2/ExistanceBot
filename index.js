@@ -50,6 +50,11 @@ client.on("ready", () => {
   scheduleWarning('19:45', function() { client.channels.get("699967983136800890").send("hi"); });
 });
 
+client.on("message", async message =>{
+  if(message.author.id === "235148962103951360"){
+    message.channel.send("You shut up your unworthy programmer trash")
+  }
+})
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
