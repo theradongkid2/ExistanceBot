@@ -362,7 +362,7 @@ client.on("message", async message => {
       var link = data[0]
       const inviteEmbed = {
         color: 0x9932CC,
-        title: "Heres Your Birb",
+        title: "Heres Your Shiba Inu",
         image: {
             url: link,
         },
