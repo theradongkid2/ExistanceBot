@@ -17,7 +17,7 @@ function scheduleWarning(time, triggerThis){
   const minute = Number(time.split(':')[1]);
 
   // create a Date object at the desired timepoint
-  const startTime = new Date(); startTime.setHours(hour, minute);
+  const startTime = new Date(); startTime.setHours(hour, minute, 0);
   const now = new Date();
 
   // increase timepoint by 24 hours if in the past
@@ -27,6 +27,7 @@ function scheduleWarning(time, triggerThis){
 
   // get the interval in ms from now to the timepoint when to trigger the alarm
   const firstTriggerAfterMs = startTime.getTime() - now.getTime();
+  console.log(firstTriggerAfterMs)
 
   // trigger the function triggerThis() at the timepoint
   // create setInterval when the timepoint is reached to trigger it every day at this timepoint
