@@ -350,6 +350,10 @@ client.on("message", async message => {
     message.delete()
   }
 
+  if(command === "pong"){
+    message.channel.send("Ping! Hey you're supposed to say e!ping !!!")
+  }
+
   if(command === "executeorder69"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
