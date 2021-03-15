@@ -10,6 +10,36 @@ function randomise(num){
   return Math.floor (Math.random() * (num - 1 + 1)) + 1;
 }
 
+function scheduleWarning(time, triggerThis){
+
+  // get hour and minute from hour:minute param received, ex.: '16:00'
+  const hour = Number(time.split(':')[0]);
+  const minute = Number(time.split(':')[1]);
+
+  // create a Date object at the desired timepoint
+  const startTime = new Date(); startTime.setHours(hour, minute);
+  const now = new Date();
+
+  // increase timepoint by 24 hours if in the past
+  if (startTime.getTime() < now.getTime()) {
+    startTime.setHours(startTime.getHours() + 24);
+  }
+
+  // get the interval in ms from now to the timepoint when to trigger the alarm
+  const firstTriggerAfterMs = startTime.getTime() - now.getTime();
+
+  // trigger the function triggerThis() at the timepoint
+  // create setInterval when the timepoint is reached to trigger it every day at this timepoint
+  setTimeout(function(){
+    triggerThis();
+    setInterval(triggerThis, 24 * 60 * 60 * 1000);
+  }, firstTriggerAfterMs);
+}
+
+function sendHi(){
+  client.channels.get("699967983136800890").send("hi")
+}
+
 //Terminal User Interface
 client.on("ready", () => {
   console.log(`Existence Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -18,27 +48,8 @@ client.on("ready", () => {
     client.guilds.forEach((guild) => {
         console.log(" - " + guild.name);
     });
-    var delayInMilliseconds = 5000; //1 second
-    while(true){
-      setTimeout(function() {
-        client.channels.get("708986429652598804").send("I am online.")
-      }, delayInMilliseconds);
-    }
+  scheduleWarning('20:12', sendhi())
 });
-
-client.on("message", () => {
-  if(!message.author.bot) return;
-  const x = true
-  var stop = false
-  var date = new Date()
-  if(date.getHours() + 11 === 19 && date.getHours() === 50 && stop !== true){
-    client.channels.get("699967983136800890").send("hi")
-    stop = true
-  } else if(stop === true && date.getHours() + 11 !== 19 && date.getHours() !== 50){
-    stop = true
-  }
-})
-
 
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
