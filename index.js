@@ -58,14 +58,17 @@ client.on("message", async message => {
     if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
       message.delete()
-      client.users.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
+      
       counter--
+      if(message.author.bot) return;
+      client.users.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
       return
     }
     if(message.author.id === lastUser){
       message.delete()
-      client.users.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
       counter--
+      if(message.author.bot) return;
+      client.users.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
       return
     }
     lastUser = message.author.id;
