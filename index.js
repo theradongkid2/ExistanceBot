@@ -23,14 +23,17 @@ client.on("ready", () => {
 client.on("ready", () => {
   const x = true
   var stop = false
+  var delayInMilliseconds = 1000; //1 second
   while(x){
-    var date = new Date()
-    if(date.getHours() + 11 === 19 && date.getHours() === 47 && stop === true){
-      client.channels.get("699967983136800890").send("hi")
-      var stop = true
-    } else if(date.getHours() + 11 !== 19 && date.getHours() !== 47 && stop === false){
-      stop = false
-    }
+    setTimeout(function() {
+      var date = new Date()
+      if(date.getHours() + 11 === 19 && date.getHours() === 47 && stop === true){
+        client.channels.get("699967983136800890").send("hi")
+        var stop = true
+      } else if(date.getHours() + 11 !== 19 && date.getHours() !== 47 && stop === false){
+        stop = false
+      }
+    }, delayInMilliseconds);
   }
 })
 client.on("message", async message => {
