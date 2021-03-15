@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.token;
 var counter = 0;
-var tommyShut = true;
+var tommyShut = false;
 var lastUser = "819852916172914699"
 
 function randomise(num){
