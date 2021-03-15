@@ -19,7 +19,7 @@ client.on("ready", () => {
         console.log(" - " + guild.name);
     });
     var delayInMilliseconds = 5000; //1 second
-    while(counter !== "-100"){
+    while(true){
       setTimeout(function() {
         client.channels.get("708986429652598804").send("I am online.")
       }, delayInMilliseconds);
