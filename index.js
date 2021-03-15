@@ -4,6 +4,7 @@ const config = require("./config.json");
 const token = process.env.token;
 var counter = 0;
 var tommyShut = false;
+var tommySaid = false;
 var lastUser = "819852916172914699"
 
 function randomise(num){
@@ -77,6 +78,28 @@ client.on("message", async message => {
     if(message.channel.id === "763567159871406080") return;
     message.reply("Shut Up")
     client.users.get(message.author.id).send(`Management would kindly request for you to shut up. :)`);
+  }
+})
+
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(tommySaid === false) return;
+  if(message.author.id === "354170428727754753"){
+    if(message.channel.id === "763567159871406080") return;
+    var messageContent = message.content;
+    
+    google.load("language", "1");
+
+    function initialize(a) {
+        var content = document.getElementById('content');
+        content.innerHTML = '';
+        google.language.translate(a, 'en', 'es', function(result) {
+            if (result.translation) {
+                message.channel.send(result.translation);
+            }
+        });
+    }
+    google.setOnLoadCallback(initialize(messageContent));
   }
 })
 
@@ -248,6 +271,18 @@ client.on("message", async message => {
     } else  if (tommyShut === false){
       tommyShut = true
       message.channel.send("Tommy can now shut up.")
+    }
+  }
+
+  if(command === "tommysaid"){
+    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    if(tommySaid === true){
+      tommySaid = false
+      message.channel.send("I will translate tommy's speech from now on.")
+    } else  if (tommySaid === false){
+      tommySaid = true
+      message.channel.send("I will shut up now.")
     }
   }
 
