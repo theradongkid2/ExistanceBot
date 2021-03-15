@@ -69,7 +69,7 @@ client.on("message", async message => {
 
   if(command === "time"){
     var date = new Date()
-    console.log(`${date.getHours()}:${date.getMinutes()}`)
+    console.log(`${date.getHours()}:${date.getMinutes()} UTC`)
   }
   if(command === "say") {
       const sayMessage = args.join(" ");
