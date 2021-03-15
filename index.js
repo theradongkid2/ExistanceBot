@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.token;
 const fetch = require("node-fetch");
+const animals = require('random-animals-api'); 
 var counter = 0;
 var tommyShut = false;
 var tommySaid = false;
@@ -355,7 +356,6 @@ client.on("message", async message => {
   }
 
   if(command === "birb"){
-    const animals = require('random-animals-api'); 
     animals.bird()
     .then(url => {
       const inviteEmbed = {
