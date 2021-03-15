@@ -6,6 +6,9 @@ var counter = 0;
 var tommyShut = true;
 var lastUser = "819852916172914699"
 
+function randomise(num){
+  return Math.floor (Math.random() * (num - 1 + 1)) + 1;
+}
 
 //Terminal User Interface
 client.on("ready", () => {
@@ -21,7 +24,8 @@ client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
     console.log(counter);
-    if(counter % 3 === 0) message.channel.send("mm");
+    let x = randomise(5)
+    if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
       message.delete()
       client.users.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
