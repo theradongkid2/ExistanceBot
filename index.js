@@ -23,7 +23,8 @@ client.on("ready", () => {
 client.on("ready", () => {
   var x
   while(x){
-    if(Date().getHours === 19 && Date().getHours === 25 && Date().getSeconds === 0){
+    var date = new Date()
+    if(date.getHours === 19 && date.getHours === 25 && date.getSeconds === 0){
       client.channels.get("699967983136800890").send("hi")
     }
   }
@@ -32,7 +33,8 @@ client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
     console.log(counter);
-    console.log(Date().getHours)
+    var date = new Date()
+    console.log(date.getHours)
     let x = randomise(5)
     if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
