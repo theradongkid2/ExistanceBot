@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.token;
 const fetch = require("node-fetch");
-const animals = require('random-animals-api'); 
 var counter = 0;
 var tommyShut = false;
 var tommySaid = false;
@@ -355,14 +354,17 @@ client.on("message", async message => {
     message.channel.send("Ping! Hey you're supposed to say e!ping !!!")
   }
 
-  if(command === "birb"){
-    animals.bird()
-    .then(url => {
+  if(command === "shiba"){
+    fetch(`http://shibe.online/api/shibes`).then(function (response) {
+	    // The API call was successful!
+	    return response.json();
+    }).then(function (data){
+      var link = data[0]
       const inviteEmbed = {
         color: 0x9932CC,
         title: "Heres Your Birb",
         image: {
-            url: url,
+            url: link,
         },
         
         timestamp: new Date(),
@@ -372,8 +374,7 @@ client.on("message", async message => {
         },
       };
       message.channel.send({ embed: inviteEmbed });
-    })
-    .catch((error) => console.error(error));
+    });
   }
 
   if(command === "executeorder69"){
