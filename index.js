@@ -354,6 +354,28 @@ client.on("message", async message => {
     message.channel.send("Ping! Hey you're supposed to say e!ping !!!")
   }
 
+  if(command === "birb"){
+    const animals = require('random-animals-api'); 
+    animals.bird()
+    .then(url => {
+      const inviteEmbed = {
+        color: 0x9932CC,
+        title: "Heres Your Birb",
+        image: {
+            url: url,
+        },
+        
+        timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+      };
+      message.channel.send({ embed: inviteEmbed });
+    })
+    .catch((error) => console.error(error));
+  }
+
   if(command === "executeorder69"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
