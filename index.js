@@ -87,35 +87,38 @@ client.on("message", async message => {
   if(message.author.id === "354170428727754753"){
     if(message.channel.id === "763567159871406080") return;
     var messageContent = message.content;
-    
-    google.load("language", "1");
+    var str = messageContent;
+    let temp = str.split(" ").map(translatePigLatin);  
+    var answer = temp.join(" ").toLowerCase();
+      
+    message.channel.send(`tommy said: ${answer}`);
 
-    function pigLatin(str) {
-      // Convert string to lowercase
-      str = str.toLowerCase()
-      // Initialize array of vowels
-      const vowels = ["a", "e", "i", "o", "u"];
-      // Initialize vowel index to 0
-      let vowelIndex = 0;
     
-      if (vowels.includes(str[0])) {
-        // If first letter is a vowel
-        return str + "way";
-      } else {
-        // If the first letter isn't a vowel i.e is a consonant
-        for (let char of str) {
-          // Loop through until the first vowel is found
-          if (vowels.includes(char)) {
-            // Store the index at which the first vowel exists
-            vowelIndex = str.indexOf(char);
-            break;
-          }
-        }
-        // Compose final string
-        return str.slice(vowelIndex) + str.slice(0, vowelIndex) + "ay";
+    function translatePigLatin(str) {
+      //gives us something to work with in array form
+      let newStr = [...str];
+      //regex to test words with for vowels
+      let vowels = /[aeiou]/gi;
+      
+      //first line determines if the first character in the word is a vowel
+    if (vowels.test(str[0]) === true) {
+      return str + "way"; 
+    } else if (str.search(vowels) > 0) { //if the word has a vowel but not the first letter
+      var temp = str.slice(0, str.search(vowels)); //get all consonants to the first vowel
+      newStr.push(temp, "ay"); //pushes those consonants and "ay" to the end of the word
+      for (var i = 0; i < str.search(vowels); i++) { // for loop to remove consonants off the array
+        newStr.shift();
       }
+      return newStr.join("");
+      
     }
-    pigLatin(messageContent)
+    
+    if (vowels.test(str) === false) {
+      
+      return str + "ay";
+    }
+    }
+      
   }
 })
 
