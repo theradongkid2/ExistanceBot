@@ -250,6 +250,8 @@ client.on("message", async message => {
           },
       };
       message.channel.send({ embed: warnEmbed });
+    } else{
+      message.reply("Wrong Usage: Try e!help again...")
     }
   }
 
