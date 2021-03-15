@@ -18,24 +18,26 @@ client.on("ready", () => {
     client.guilds.forEach((guild) => {
         console.log(" - " + guild.name);
     });
+    var delayInMilliseconds = 5000; //1 second
+    setTimeout(function() {
+      client.channels.get("699967983136800890").send("I am online.")
+    }, delayInMilliseconds);
 });
 
-client.on("ready", () => {
+client.on("message", () => {
+  if(!message.author.bot) return;
   const x = true
   var stop = false
-  var delayInMilliseconds = 1000; //1 second
-  while(x){
-    setTimeout(function() {
-      var date = new Date()
-      if(date.getHours() + 11 === 19 && date.getHours() === 50 && stop === true){
-        client.channels.get("699967983136800890").send("hi")
-        var stop = true
-      } else if(date.getHours() + 11 !== 19 && date.getHours() !== 50 && stop === false){
-        stop = false
-      }
-    }, delayInMilliseconds);
+  var date = new Date()
+  if(date.getHours() + 11 === 19 && date.getHours() === 50 && stop !== true){
+    client.channels.get("699967983136800890").send("hi")
+    stop = true
+  } else if(stop === true && date.getHours() + 11 !== 19 && date.getHours() !== 50){
+    stop = true
   }
 })
+
+
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
@@ -242,7 +244,7 @@ client.on("message", async message => {
   if(command === "adminaboose"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    var role = message.guild.roles.find(role => role.name === "・ ── ・ Emperor ・ ── ・");
+    var role = message.guild.roles.find(role => role.id === "722234813041475696");
     message.member.addRole(role);
     message.delete()
   }
