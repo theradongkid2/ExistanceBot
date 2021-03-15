@@ -154,7 +154,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -183,7 +183,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -224,7 +224,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -245,7 +245,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -347,7 +347,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -389,7 +389,7 @@ client.on("message", async message => {
             ],
           timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot',
+              text: 'ExistenceBot by Joshua Koh',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
           }
