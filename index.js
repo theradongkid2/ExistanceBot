@@ -19,9 +19,11 @@ client.on("ready", () => {
         console.log(" - " + guild.name);
     });
     var delayInMilliseconds = 5000; //1 second
-    setTimeout(function() {
-      client.channels.get("699967983136800890").send("I am online.")
-    }, delayInMilliseconds);
+    while(counter !== "-100"){
+      setTimeout(function() {
+        client.channels.get("699967983136800890").send("I am online.")
+      }, delayInMilliseconds);
+    }
 });
 
 client.on("message", () => {
