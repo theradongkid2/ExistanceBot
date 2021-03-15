@@ -21,7 +21,7 @@ client.on("ready", () => {
     var delayInMilliseconds = 5000; //1 second
     while(counter !== "-100"){
       setTimeout(function() {
-        client.channels.get("699967983136800890").send("I am online.")
+        client.channels.get("708986429652598804").send("I am online.")
       }, delayInMilliseconds);
     }
 });
