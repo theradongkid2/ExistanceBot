@@ -69,7 +69,7 @@ client.on("message", async message => {
 
   if(command === "time"){
     var date = new Date()
-    console.log(`${date.getHours() + 11}:${date.getMinutes()}`)
+    message.channel.send(`${date.getHours() + 11}:${date.getMinutes()}:${date.getSeconds()}`)
   }
   if(command === "say") {
       const sayMessage = args.join(" ");
