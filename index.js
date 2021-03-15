@@ -132,6 +132,143 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
+  if(command === "help"){
+    const args = message.content.split(' ');
+    if(!args[1]){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Command Categories`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Moderator Commands`,
+          value: `Use e!help mod`
+          },
+          {
+            name: `Fun and Image Commands`,
+            value: `Use e!help fun`
+            },
+              {
+                name: `Tommy Diao Torture Commands`,
+                value: `Use e!help diao`
+                },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    } else if(args[1] === "mod"){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Moderator Commands`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Kick (Admins Only)`,
+          value: `Usage: e!kick @user reason [used to kick members]`
+          },
+          {
+            name: `Ban (Admins Only)`,
+            value: `Usage: e!ban @user reason [used to ban members]`
+            },
+            {
+              name: `Warn (Admins Only)`,
+              value: `Usage: e!warn @user reason [used to warn members]`
+              },
+              {
+                name: `Purge (Admins Only)`,
+                value: `Usage: e!purge number (1-100) [used to clear/delete an amount of messages]`
+                },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    } else if(args[1] === "fun"){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Fun and Image Commands`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Shiba`,
+          value: `Usage: e!shiba [sends a random shiba inu picture]`
+          },
+          {
+            name: `Cat`,
+            value: `Usage: e!cat [sends a random cat picture]`
+            },
+            {
+              name: `Say`,
+              value: `Usage: e!say a sentence [used to repeat a message, and delete the commanding message (looks like bot speaks)]`
+              },
+              {
+                name: `Ping`,
+                value: `Usage: e!ping [used to show latency/ping.]`
+                },
+                {
+                  name: `Poll`,
+                  value: `Usage: e!poll a question [sends a message with that question, with reacting with a thumbs up and down for a poll]`
+                  },
+                  {
+                    name: `Quote`,
+                    value: `Usage: e!quote [sends a random quote]`
+                    },
+                    {
+                      name: `User Statistics`,
+                      value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
+                      },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    } else if(args[1] === "diao"){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Tommy Diao Torture Commands`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Tommy Shut Up (Admins Only)`,
+          value: `Usage: e!tommyshut [Responds with @RA1N, Shut Up whenever the man speaks. By default off.]`
+          },
+          {
+            name: `Tommy Translation (Admins Only)`,
+            value: `Usage: e!tommysaid [Responds with a piglatin translation of the man's message. By default off]`
+            }
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    }
+  }
+
+
+
+
+
   if(command === "time"){
     var date = new Date()
     message.channel.send(`${date.getHours() + 11}:${date.getMinutes()}:${date.getSeconds()}`)
