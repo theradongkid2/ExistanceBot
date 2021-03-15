@@ -33,8 +33,6 @@ client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
     console.log(counter);
-    var date = new Date()
-    console.log(date.getHours())
     let x = randomise(5)
     if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
@@ -69,6 +67,10 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
+  if(command === "time"){
+    var date = new Date()
+    console.log(`${date.getHours()}:${date.getMinutes()}`)
+  }
   if(command === "say") {
       const sayMessage = args.join(" ");
       message.delete().catch(O_o=>{}); 
