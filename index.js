@@ -55,7 +55,7 @@ client.on("message", async message => {
     counter++;
     console.log(counter);
     let x = randomise(5)
-    if(counter % x === 0) message.channel.send("mm");
+    if(counter % x === 0 && lastUser !== "819852916172914699") message.channel.send("mm");
     if(message.content !== "mm"){
       message.delete()
       
