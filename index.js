@@ -138,9 +138,6 @@ client.on("message", async message => {
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Command Categories`,
-        thumbnail: {
-          url: member.user.avatarURL
-        },
         fields: [
           {
           name: `Moderator Commands`,
@@ -166,9 +163,6 @@ client.on("message", async message => {
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Moderator Commands`,
-        thumbnail: {
-          url: member.user.avatarURL
-        },
         fields: [
           {
           name: `Kick (Admins Only)`,
@@ -198,9 +192,6 @@ client.on("message", async message => {
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Fun and Image Commands`,
-        thumbnail: {
-          url: member.user.avatarURL
-        },
         fields: [
           {
           name: `Shiba`,
@@ -242,9 +233,6 @@ client.on("message", async message => {
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Tommy Diao Torture Commands`,
-        thumbnail: {
-          url: member.user.avatarURL
-        },
         fields: [
           {
           name: `Tommy Shut Up (Admins Only)`,
