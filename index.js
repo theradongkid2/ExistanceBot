@@ -36,10 +36,6 @@ function scheduleWarning(time, triggerThis){
   }, firstTriggerAfterMs);
 }
 
-function sendHi(){
-  client.channels.get("699967983136800890").send("hi")
-}
-
 //Terminal User Interface
 client.on("ready", () => {
   console.log(`Existence Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -48,7 +44,7 @@ client.on("ready", () => {
     client.guilds.forEach((guild) => {
         console.log(" - " + guild.name);
     });
-  scheduleWarning('20:12', sendhi())
+  scheduleWarning('20:14', client.channels.get("699967983136800890").send("hi"))
 });
 
 client.on("message", async message => {
