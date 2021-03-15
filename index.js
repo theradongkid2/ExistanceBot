@@ -21,6 +21,7 @@ function getQuote(){
       quote = `${data[rng1].text}`
       if(data[rng1].author === null) return
        author = `- ${data[rng1].author}`
+      return `${quote} - ${author}`
     });
 }
 
@@ -326,7 +327,7 @@ client.on("message", async message => {
       const inviteEmbed = {
       color: 0xFFFFFF,
       title: "Here's your Quote:",
-      description: `${quote} - ${author}`,
+      description: `${getQuote()}`,
       thumbnail: {
           url: 'https://cdn.discordapp.com/attachments/732914068075315271/820960779444551680/1xIxR8PZjbNqBtA-zU9wFYA.png',
       },
