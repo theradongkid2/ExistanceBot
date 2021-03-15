@@ -20,6 +20,14 @@ client.on("ready", () => {
     });
 });
 
+client.on("ready", () => {
+  var x
+  while(x){
+    if(Date().getHours === 19 && Date().getHours === 24){
+      client.channels.get("699967983136800890").send("hi")
+    }
+  }
+})
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
