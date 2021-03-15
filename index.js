@@ -32,6 +32,7 @@ client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
     console.log(counter);
+    console.log(Date().getHours)
     let x = randomise(5)
     if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
