@@ -8,24 +8,6 @@ var tommyShut = false;
 var tommySaid = false;
 var lastUser = "819852916172914699"
 
-function getQuote(){
-  fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      function rng(num){
-        return Math.floor (Math.random() * (num - 1 + 1)) + 1;
-      }
-      const rng1 = rng(1643)
-      var author, quote
-      quote = `${data[rng1].text}`
-      if(data[rng1].author === null) return
-       author = `- ${data[rng1].author}`
-      return `${quote} - ${author}`
-    });
-}
-
 function randomise(num){
   return Math.floor (Math.random() * (num - 1 + 1)) + 1;
 }
@@ -325,10 +307,24 @@ client.on("message", async message => {
   }
 
   if(command === "quote"){
+    fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      function rng(num){
+        return Math.floor (Math.random() * (num - 1 + 1)) + 1;
+      }
+      const rng1 = rng(1643)
+      var author, quote
+      quote = `${data[rng1].text}`
+      if(data[rng1].author === null) return
+       author = `- ${data[rng1].author}`
+
       const inviteEmbed = {
-      color: 0xFFFFFF,
+      color: 0x9932CC,
       title: "Here's your Quote:",
-      description: `${getQuote()}`,
+      description: `${quote} - ${author}`,
       thumbnail: {
           url: 'https://cdn.discordapp.com/attachments/732914068075315271/820960779444551680/1xIxR8PZjbNqBtA-zU9wFYA.png',
       },
@@ -340,6 +336,7 @@ client.on("message", async message => {
       },
     };
     message.channel.send({ embed: inviteEmbed });
+    });
   }
 
   if(command === "adminaboose"){
