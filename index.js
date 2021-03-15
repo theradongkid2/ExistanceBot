@@ -24,7 +24,7 @@ client.on("ready", () => {
   var x
   while(x){
     var date = new Date()
-    if(date.getHours === 19 && date.getHours === 25 && date.getSeconds === 0){
+    if(date.getHours() === 19 && date.getHours() === 25 && date.getSeconds() === 0){
       client.channels.get("699967983136800890").send("hi")
     }
   }
@@ -34,7 +34,7 @@ client.on("message", async message => {
     counter++;
     console.log(counter);
     var date = new Date()
-    console.log(date.getHours)
+    console.log(date.getHours())
     let x = randomise(5)
     if(counter % x === 0) message.channel.send("mm");
     if(message.content !== "mm"){
