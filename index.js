@@ -322,7 +322,7 @@ client.on("message", async message => {
       var author, quote
       quote = `${data[rng1].text}`
       if(data[rng1].author === null) return
-       author = `- ${data[rng1].author}`
+       author = `${data[rng1].author}`
 
       const inviteEmbed = {
       color: 0x9932CC,
