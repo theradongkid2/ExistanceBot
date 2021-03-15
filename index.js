@@ -24,7 +24,7 @@ client.on("ready", () => {
   var x
   while(x){
     var date = new Date()
-    if(date.getHours() === 19 && date.getHours() === 25 && date.getSeconds() === 0){
+    if(date.getHours() + 11 === 19 && date.getHours() === 42 && date.getSeconds() === 0){
       client.channels.get("699967983136800890").send("hi")
     }
   }
