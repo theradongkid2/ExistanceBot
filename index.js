@@ -221,7 +221,7 @@ client.on("message", async message => {
         timestamp: new Date(),
           footer: {
               text: 'ExistenceBot',
-              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
       message.channel.send({ embed: warnEmbed });
@@ -263,7 +263,7 @@ client.on("message", async message => {
           timestamp: new Date(),
           footer: {
               text: 'ExistenceBot',
-              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
           }
           
@@ -335,7 +335,7 @@ client.on("message", async message => {
       timestamp: new Date(),
       footer: {
           text: 'ExistenceBot by Joshua Koh',
-          icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
+          icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
       },
     };
     message.channel.send({ embed: inviteEmbed });
