@@ -305,6 +305,39 @@ client.on("message", async message => {
     }
   }
 
+  if(command === "quote"){
+    fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      function rng(num){
+        return Math.floor (Math.random() * (num - 1 + 1)) + 1;
+      }
+      const rng1 = rng(1643)
+      var author, quote
+      quote = `${data[rng1].text}`
+      if(data[rng1].author === null) return
+       author = `- ${data[rng1].author}`
+
+      const inviteEmbed = {
+      color: 0xFFFFFF,
+      title: "Here's your Quote:",
+      description: `${quote} - ${author}`,
+      thumbnail: {
+          url: 'https://cdn.discordapp.com/attachments/732914068075315271/820960779444551680/1xIxR8PZjbNqBtA-zU9wFYA.png',
+      },
+      
+      timestamp: new Date(),
+      footer: {
+          text: 'ExistenceBot by Joshua Koh',
+          icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/0b94b139db25b2d606d6e50eef2f66bd.png?size=256',
+      },
+    };
+    message.channel.send({ embed: inviteEmbed });
+    });
+  }
+
   if(command === "adminaboose"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
