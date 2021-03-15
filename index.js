@@ -296,11 +296,11 @@ client.on("message", async message => {
   if(command === "tommysaid"){
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    if(tommySaid === true){
-      tommySaid = false
-      message.channel.send("I will translate tommy's speech from now on.")
-    } else  if (tommySaid === false){
+    if(tommySaid === false){
       tommySaid = true
+      message.channel.send("I will translate tommy's speech from now on.")
+    } else  if (tommySaid === true){
+      tommySaid = false
       message.channel.send("I will shut up now.")
     }
   }
