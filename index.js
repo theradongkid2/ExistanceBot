@@ -155,7 +155,10 @@ client.on("message", async message => {
               {
                 name: `Tommy Diao Torture Commands`,
                 value: `Use e!help diao`
-                },
+                },{
+                  name: `Miscellaneous Commands`,
+                  value: `Use e!help misc`
+                  },
         ],
         timestamp: new Date(),
           footer: {
@@ -199,6 +202,10 @@ client.on("message", async message => {
         title: `Help - Fun Commands`,
         fields: [
           {
+            name: `Ship`,
+            value: `Usage: e!ship person1 person2 [sends percentage of compatibility between two people/items]`
+            },
+          {
             name: `Meme`,
             value: `Usage: e!meme [sends a random meme]`
             },
@@ -206,22 +213,10 @@ client.on("message", async message => {
               name: `Say`,
               value: `Usage: e!say a sentence [used to repeat a message, and delete the commanding message (looks like bot speaks)]`
               },
-              {
-                name: `Ping`,
-                value: `Usage: e!ping [used to show latency/ping.]`
-                },
-                {
-                  name: `Poll`,
-                  value: `Usage: e!poll a question [sends a message with that question, with reacting with a thumbs up and down for a poll]`
-                  },
                   {
                     name: `Quote`,
                     value: `Usage: e!quote [sends a random quote]`
-                    },
-                    {
-                      name: `User Statistics`,
-                      value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
-                      },
+                    }
         ],
         timestamp: new Date(),
           footer: {
@@ -252,6 +247,35 @@ client.on("message", async message => {
       };
       message.channel.send({ embed: warnEmbed });
     } else if(args[1] === "image"){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Image Commands`,
+        fields: [
+          {
+            name: `Ping`,
+            value: `Usage: e!ping [used to show latency/ping.]`
+            },
+            {
+              name: `Poll`,
+              value: `Usage: e!poll a question [sends a message with that question, with reacting with a thumbs up and down for a poll]`
+              },
+          {
+            name: `Cat`,
+            value: `Usage: e!cat [sends a random cat picture]`
+            },
+            {
+              name: `User Statistics`,
+              value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
+              },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot by Joshua Koh',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    } else if(args[1] === "misc"){
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Image Commands`,
