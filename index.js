@@ -246,10 +246,10 @@ client.on("message", async message => {
           },
       };
       message.channel.send({ embed: warnEmbed });
-    } else if(args[1] === "image"){
+    } else if(args[1] === "misc"){
       const warnEmbed = {
         color: 0xFF69B4,
-        title: `Help - Image Commands`,
+        title: `Help - Miscellaneous Commands`,
         fields: [
           {
             name: `Ping`,
@@ -275,7 +275,7 @@ client.on("message", async message => {
           },
       };
       message.channel.send({ embed: warnEmbed });
-    } else if(args[1] === "misc"){
+    } else if(args[1] === "image"){
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Image Commands`,
