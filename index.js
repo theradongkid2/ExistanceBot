@@ -145,8 +145,12 @@ client.on("message", async message => {
           value: `Use e!help mod`
           },
           {
-            name: `Fun and Image Commands`,
+            name: `Fun Commands`,
             value: `Use e!help fun`
+            },
+            {
+              name: "Image Commands",
+              value: "Use e!help image"
             },
               {
                 name: `Tommy Diao Torture Commands`,
@@ -192,23 +196,11 @@ client.on("message", async message => {
     } else if(args[1] === "fun"){
       const warnEmbed = {
         color: 0xFF69B4,
-        title: `Help - Fun and Image Commands`,
+        title: `Help - Fun Commands`,
         fields: [
           {
             name: `meme`,
             value: `Usage: e!meme [sends a random meme]`
-            },
-          {
-            name: `Birb`,
-            value: `Usage: e!birb [sends a random bird picture]`
-            },
-          {
-          name: `Shiba`,
-          value: `Usage: e!shiba [sends a random shiba inu picture]`
-          },
-          {
-            name: `Cat`,
-            value: `Usage: e!cat [sends a random cat picture]`
             },
             {
               name: `Say`,
@@ -251,6 +243,31 @@ client.on("message", async message => {
             name: `Tommy Translation (Admins Only)`,
             value: `Usage: e!tommysaid [Responds with a piglatin translation of the man's message. By default off]`
             }
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot by Joshua Koh',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      message.channel.send({ embed: warnEmbed });
+    } else if(args[1] === "image"){
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Help - Image Commands`,
+        fields: [
+          {
+            name: `Birb`,
+            value: `Usage: e!birb [sends a random bird picture]`
+            },
+          {
+          name: `Shiba`,
+          value: `Usage: e!shiba [sends a random shiba inu picture]`
+          },
+          {
+            name: `Cat`,
+            value: `Usage: e!cat [sends a random cat picture]`
+            },
         ],
         timestamp: new Date(),
           footer: {
