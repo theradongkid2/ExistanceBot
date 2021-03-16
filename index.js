@@ -586,9 +586,12 @@ client.on("message", async message => {
         "x-rapidapi-key": "1c5b48d8cdmsh70098e9ec1b7eeap1dc730jsnb2f3060f371e",
         "x-rapidapi-host": "love-calculator.p.rapidapi.com"
 	    }
-    }).then(response => {
-      var message = response.result;
-      var percentage = response.percentage;
+    }).then(function (response) {
+	    // The API call was successful!
+	    return response.json();
+    }).then(function (data){
+      var message = data.result;
+      var percentage = data.percentage;
       const inviteEmbed = {
         color: 0xF9E3EF,
         title: `${person1} and ${person2} are ${percentage}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
