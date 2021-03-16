@@ -616,6 +616,19 @@ client.on("message", async message => {
     }).then(function (data){
       var messageItem = data.result;
       var percentages = data.percentage;
+      if(percentages < 10){
+        var emoji = ":flushed: :flushed: "
+      } else if(percentages < 25){
+        var emoji = ":face_vomiting: :face_vomiting:"
+      } else if(percentages < 50){
+        var emoji = " :smiling_face_with_3_hearts:"
+      } else if(percentages < 75){
+        var emoji = " :smiling_face_with_3_hearts: :kissing_heart: "
+      } else if(percentage < 90){
+        var emoji = ":heart_eyes: :heart_eyes: "
+      } else if(percentage <= 100){
+        var emoji = ":heart_eyes: :star_struck:"
+      }
       const inviteEmbed = {
         color: 0xF9E3EF,
         title: `${person1} and ${person2} are ${percentages}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
