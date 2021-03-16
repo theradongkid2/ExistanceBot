@@ -631,7 +631,7 @@ client.on("message", async message => {
       }
       const inviteEmbed = {
         color: 0xF9E3EF,
-        title: `${person1} and ${person2} are ${percentages}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
+        title: `${person1} and ${person2} are ${percentages}% compatible ${emoji}`,
         description: `${messageItem}`,
         
         timestamp: new Date(),
