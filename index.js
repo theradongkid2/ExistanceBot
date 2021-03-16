@@ -590,12 +590,12 @@ client.on("message", async message => {
 	    // The API call was successful!
 	    return response.json();
     }).then(function (data){
-      var message = data.result;
-      var percentage = data.percentage;
+      var messageItem = data.result;
+      var percentages = data.percentage;
       const inviteEmbed = {
         color: 0xF9E3EF,
-        title: `${person1} and ${person2} are ${percentage}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
-        description: `${message}`,
+        title: `${person1} and ${person2} are ${percentages}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
+        description: `${messageItem}`,
         
         timestamp: new Date(),
         footer: {
