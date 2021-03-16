@@ -199,7 +199,7 @@ client.on("message", async message => {
         title: `Help - Fun Commands`,
         fields: [
           {
-            name: `meme`,
+            name: `Meme`,
             value: `Usage: e!meme [sends a random meme]`
             },
             {
@@ -574,6 +574,34 @@ client.on("message", async message => {
       };
       message.channel.send({ embed: inviteEmbed });
     });
+  }
+
+  if(command === "ship"){
+    const args = message.content.split(' ');
+    var person1 = args[1];
+    var person2 = args[2];
+    fetch(`https://love-calculator.p.rapidapi.com/getPercentage?fname=${person1}&sname=${person2}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "1c5b48d8cdmsh70098e9ec1b7eeap1dc730jsnb2f3060f371e",
+        "x-rapidapi-host": "love-calculator.p.rapidapi.com"
+	    }
+    }).then(response => {
+      var message = response.result;
+      var percentage = response.percentage;
+      const inviteEmbed = {
+        color: 0xF9E3EF,
+        title: `${person1} and ${person2} are ${percentage}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
+        description: message,
+        
+        timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+      };
+      message.channel.send({ embed: inviteEmbed });
+    })
   }
 
   if(command === "meme"){
