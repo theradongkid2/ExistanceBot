@@ -195,6 +195,10 @@ client.on("message", async message => {
         title: `Help - Fun and Image Commands`,
         fields: [
           {
+            name: `meme`,
+            value: `Usage: e!meme [sends a random meme]`
+            },
+          {
             name: `Birb`,
             value: `Usage: e!birb [sends a random bird picture]`
             },
@@ -541,6 +545,30 @@ client.on("message", async message => {
       const inviteEmbed = {
         color: 0x9932CC,
         title: "Heres Your Birb Pic!",
+        image: {
+            url: link,
+        },
+        
+        timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+      };
+      message.channel.send({ embed: inviteEmbed });
+    });
+  }
+
+  if(command === "meme"){
+    fetch(`https://some-random-api.ml/meme`).then(function (response) {
+	    // The API call was successful!
+	    return response.json();
+    }).then(function (data){
+      var link = data.image
+      var caption = data.caption
+      const inviteEmbed = {
+        color: 0x9932CC,
+        title: caption,
         image: {
             url: link,
         },
