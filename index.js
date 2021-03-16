@@ -195,6 +195,10 @@ client.on("message", async message => {
         title: `Help - Fun and Image Commands`,
         fields: [
           {
+            name: `Birb`,
+            value: `Usage: e!birb [sends a random bird picture]`
+            },
+          {
           name: `Shiba`,
           value: `Usage: e!shiba [sends a random shiba inu picture]`
           },
