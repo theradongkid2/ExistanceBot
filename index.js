@@ -626,7 +626,7 @@ client.on("message", async message => {
         var emoji = " :smiling_face_with_3_hearts: :kissing_heart: "
       } else if(percentage < 90){
         var emoji = ":heart_eyes: :heart_eyes: "
-      } else if(percentage <= 100){
+      } else if(percentages <= 100){
         var emoji = ":heart_eyes: :star_struck:"
       }
       const inviteEmbed = {
