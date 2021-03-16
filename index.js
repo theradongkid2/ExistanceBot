@@ -592,13 +592,13 @@ client.on("message", async message => {
       const inviteEmbed = {
         color: 0xF9E3EF,
         title: `${person1} and ${person2} are ${percentage}% compatible :smiling_face_with_3_hearts: :kissing_heart:`,
-        description: message,
+        description: `${message}`,
         
         timestamp: new Date(),
         footer: {
             text: 'ExistenceBot by Joshua Koh',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
-        },
+        }
       };
       message.channel.send({ embed: inviteEmbed });
     })
