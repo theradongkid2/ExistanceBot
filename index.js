@@ -701,6 +701,30 @@ client.on("message", async message => {
     var sortedArgs = numArgs.join(" ");
     message.reply(`Here's Your Sorted Numbers, using Bubble Sort: ${sortedArgs}`);
   }
+
+  if(command === "insertionsort"){
+    var numArgs = message.content.split(' ')
+    numArgs[0] = null;
+    var Name = numArgs.map(Number);
+
+    let First = 1;
+    let Last = Name.length;
+    let PositionOfNext = Last - 1;
+    while(PositionOfNext >= First){
+      let Next = Name[PositionOfNext];
+      let Current = PositionOfNext;
+      while(Current < Last && Next > Name[Current + 1]){
+        Current++;
+        Name[Current - 1] = Name[Current];
+      }
+      Name[Current] = Next;
+      PositionOfNext--;
+    }
+    
+    var sortedName = Name.join(" ");
+    message.reply(`Here's Your Sorted Numbers, using Insertion Sort: ${sortedName}`);
+  }
+
 });
 
 //Client Login
