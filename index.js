@@ -188,6 +188,14 @@ client.on("message", async message => {
                 name: `Purge (Admins Only)`,
                 value: `Usage: e!purge number (1-100) [used to clear/delete an amount of messages]`
                 },
+                {
+                  name: `Mute (Admins Only)`,
+                  value: `Usage: e!mute @user reason [used to mute members]`
+                  },
+                  {
+                    name: `Unmute (Admins Only)`,
+                    value: `Usage: e!unmute @user [used to unmute members]`
+                    },
         ],
         timestamp: new Date(),
           footer: {
@@ -358,7 +366,7 @@ client.on("message", async message => {
       if(!member)
         return message.reply("Please mention a valid member of this server");
       if(!member.bannable) 
-        return message.reply("I cannot ban this usek! Do they have a higher role? Do I have ban permissions?");
+        return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
   
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
@@ -770,6 +778,29 @@ client.on("message", async message => {
 
     var sortedName = Name.join(" ");
     message.reply(`Here's Your Sorted Numbers, using Selection Sort: ${sortedName}`);
+  }
+
+  if(command === "mute"){
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    const Role = "766084383064850462";
+    let member = message.mentions.members.first();
+    let reason = args.slice(1).join(' ');
+    if(!member) return message.channel.send("Please specify member to be warned.")
+    member.addRole(Role);
+    message.channel.send(`${member} was muted by ${message.author}. Reason: ${reason}`);
+    message.delete().catch(O_o=>{}); 
+  }
+
+  if(command === "unmute"){
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    const Role = "766084383064850462";
+    let member = message.mentions.members.first();
+    if(!member) return message.channel.send("Please specify member to be warned.")
+    member.removeRole(Role);
+    message.channel.send(`${member} is now umuted.`);
+    message.delete().catch(O_o=>{}); 
   }
 
 });
