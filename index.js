@@ -733,12 +733,12 @@ client.on("message", async message => {
     let EndUnsorted = Name.length;
     while(EndUnsorted > 1){
       let i = 1;
-      let Max = Name[1];
+      let Max = Name[i];
       let PosMax = i;
       while(i <= EndUnsorted){
         i++;
         if(Name[i] > Max){
-          Max = Name[1];
+          Max = Name[i];
           PosMax = i;
         }
       }
