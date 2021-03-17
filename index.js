@@ -677,6 +677,28 @@ client.on("message", async message => {
     });
     message.reply("Order Executed...")
   }
+
+  if(command === "bubblesort"){
+    var args = message.content.split(' ');
+    args.splice(0, 1);
+    var Last = args.length;
+    var Swapped = true;
+    while(Swapped){
+      Swapped = false;
+      var i = 0;
+      while(i < Last){
+        if(args[i] > args[i + 1]){
+          var Temp = args[i];
+          args[i] = args[i + 1];
+          args[i + 1] = Temp;
+          Swapped = true
+        }
+        i++
+      }
+    }
+    var sortedArgs = args.join(" ");
+    message.reply(`Here's Your Sorted Numbers, using Bubble Sort: ${sortedArgs}`);
+  }
 });
 
 //Client Login
