@@ -681,22 +681,22 @@ client.on("message", async message => {
   if(command === "bubblesort"){
     const args = message.content.split(' ');
     var numArgs = args.splice(0, 1);
-    var Last = args.length;
+    var Last = numArgs.length;
     var Swapped = true;
     while(Swapped){
       Swapped = false;
       var i = 0;
       while(i < Last){
-        if(args[i] > args[i + 1]){
-          var Temp = args[i];
-          args[i] = args[i + 1];
-          args[i + 1] = Temp;
+        if(numArgs[i] > numArgs[i + 1]){
+          var Temp = numArgs[i];
+          numArgs[i] = numArgs[i + 1];
+          numArgs[i + 1] = Temp;
           Swapped = true
         }
         i++
       }
     }
-    var sortedArgs = args.join(" ");
+    var sortedArgs = numArgs.join(" ");
     message.reply(`Here's Your Sorted Numbers, using Bubble Sort: ${sortedArgs}`);
   }
 });
