@@ -720,9 +720,36 @@ client.on("message", async message => {
       Name[Current] = Next;
       PositionOfNext--;
     }
-    
+
     var sortedName = Name.join(" ");
     message.reply(`Here's Your Sorted Numbers, using Insertion Sort: ${sortedName}`);
+  }
+
+  if(command === "selectionsort"){
+    var numArgs = message.content.split(' ')
+    numArgs[0] = null;
+    var Name = numArgs.map(Number);
+    
+    let EndUnsorted = Name.length;
+    while(EndUnsorted > 1){
+      let i = 1;
+      let Max = Name[1];
+      let PosMax = i;
+      while(i <= EndUnsorted){
+        i++;
+        if(Name[i] > Max){
+          Max = Name[1];
+          PosMax = i;
+        }
+      }
+      let Temp = Name[PosMax];
+      Name[PosMax] = Name[EndUnsorted];
+      Name[EndUnsorted] = Temp;
+      EndUnsorted--;
+    }
+
+    var sortedName = Name.join(" ");
+    message.reply(`Here's Your Sorted Numbers, using Selection Sort: ${sortedName}`);
   }
 
 });
