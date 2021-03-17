@@ -202,6 +202,10 @@ client.on("message", async message => {
         title: `Help - Fun Commands`,
         fields: [
           {
+            name: `Useless Fact`,
+            value: `Usage: e!fact [sends a random useless fact]`
+            },
+          {
             name: `Ship`,
             value: `Usage: e!ship person1 person2 [sends percentage of compatibility between two people/items]`
             },
@@ -259,10 +263,6 @@ client.on("message", async message => {
               name: `Poll`,
               value: `Usage: e!poll a question [sends a message with that question, with reacting with a thumbs up and down for a poll]`
               },
-          {
-            name: `Cat`,
-            value: `Usage: e!cat [sends a random cat picture]`
-            },
             {
               name: `User Statistics`,
               value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
@@ -590,6 +590,26 @@ client.on("message", async message => {
             url: link,
         },
         
+        timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+      };
+      message.channel.send({ embed: inviteEmbed });
+    });
+  }
+
+  if(command === "fact"){
+    fetch(`https://uselessfacts.jsph.pl/random.json?language=en`).then(function (response) {
+	    // The API call was successful!
+	    return response.json();
+    }).then(function (data){
+      var fact = data.text
+      const inviteEmbed = {
+        color: 0x000000,
+        title: "Did you Know?",
+        description: `${fact}`,
         timestamp: new Date(),
         footer: {
             text: 'ExistenceBot by Joshua Koh',
