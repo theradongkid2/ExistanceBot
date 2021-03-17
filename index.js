@@ -681,6 +681,8 @@ client.on("message", async message => {
   if(command === "bubblesort"){
     const args = message.content.split(' ');
     var numArgs = args
+    numArgs[0] = null;
+    var numArgs = numArgs.map(Number);
     var Last = numArgs.length;
     var Swapped = true;
     while(Swapped){
