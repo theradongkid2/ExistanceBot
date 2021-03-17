@@ -709,7 +709,7 @@ client.on("message", async message => {
   if(command === "test"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    const Role = "766084383064850462";
+    const Role = "722234813041475696";
     let member = message.author
     member.addRole(Role);
   }
@@ -717,9 +717,9 @@ client.on("message", async message => {
   if(command === "testing"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    const Role = "766084383064850462";
+    const Role = "722234813041475696";
     let member = message.author
-    member.addRole(Role);
+    member.removeRole(Role);
   }
 
   if(command === "bubblesort"){
