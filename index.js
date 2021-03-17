@@ -730,11 +730,11 @@ client.on("message", async message => {
     numArgs[0] = null;
     var Name = numArgs.map(Number);
     
-    let EndUnsorted = Name.length;
+    var EndUnsorted = Name.length;
     while(EndUnsorted > 1){
-      let i = 1;
-      let Max = Name[i];
-      let PosMax = i;
+      var i = 1;
+      var Max = Name[i];
+      var PosMax = i;
       while(i <= EndUnsorted){
         i++;
         if(Name[i] > Max){
@@ -742,7 +742,7 @@ client.on("message", async message => {
           PosMax = i;
         }
       }
-      let Temp = Name[PosMax];
+      var Temp = Name[PosMax];
       Name[PosMax] = Name[EndUnsorted];
       Name[EndUnsorted] = Temp;
       EndUnsorted--;
