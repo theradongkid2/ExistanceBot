@@ -409,7 +409,7 @@ client.on("message", async message => {
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
-      message.channel.send({ embed: warnEmbed });
+      client.channels.get("767659295230918676").send({ embed: warnEmbed });
       client.users.get(memberId).send(`You have been warned in ${server} for ${reason}`);
   };
   
@@ -785,12 +785,34 @@ client.on("message", async message => {
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
+    let memberId = essage.mentions.members.first().id
+    let server = message.guild.name;
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided!"
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.addRole(Role);
     message.channel.send(`${member} was muted by ${message.author}. Reason: ${reason}`);
-    message.delete().catch(O_o=>{}); 
+
+    const warnEmbed = {
+      color: 0xFF69B4,
+      title: `Mute Log:`,
+      thumbnail: {
+        url: member.user.avatarURL
+      },
+      fields: [
+        {
+        name: `Muted User: ${member}`,
+        value: `Warn Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
+        },
+      ],
+      timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+    };
+    client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    client.users.get(memberId).send(`You have been muted in ${server} for ${reason}`);
   }
 
   if(command === "unmute"){
@@ -798,10 +820,30 @@ client.on("message", async message => {
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
+    let memberId = essage.mentions.members.first().id
+    let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.removeRole(Role);
     message.channel.send(`${member} is now umuted.`);
-    message.delete().catch(O_o=>{}); 
+    const warnEmbed = {
+      color: 0xFF69B4,
+      title: `Unmute Log:`,
+      thumbnail: {
+        url: member.user.avatarURL
+      },
+      fields: [
+        {
+        name: `Muted User: ${member}`,
+        value: `User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+        },
+      ],
+      timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by Joshua Koh',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        },
+    };
+    client.channels.get("767659295230918676").send({ embed: warnEmbed });
   }
 
 });
