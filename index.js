@@ -786,6 +786,7 @@ client.on("message", async message => {
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
     let reason = args.slice(1).join(' ');
+    if(!reason) reason = "No reason provided!"
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.addRole(Role);
     message.channel.send(`${member} was muted by ${message.author}. Reason: ${reason}`);
