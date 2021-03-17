@@ -680,13 +680,13 @@ client.on("message", async message => {
 
   if(command === "bubblesort"){
     const args = message.content.split(' ');
-    var numArgs = args.splice(0, 1);
+    var numArgs = args
     var Last = numArgs.length;
     var Swapped = true;
     while(Swapped){
       Swapped = false;
-      var i = 0;
-      while(i < Last){
+      var i = 1;
+      while(i <= Last){
         if(numArgs[i] > numArgs[i + 1]){
           var Temp = numArgs[i];
           numArgs[i] = numArgs[i + 1];
