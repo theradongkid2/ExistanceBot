@@ -706,6 +706,22 @@ client.on("message", async message => {
     message.reply("Order Executed...")
   }
 
+  if(command === "test"){
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    const Role = "766084383064850462";
+    let member = message.author
+    member.addRole(Role);
+  }
+
+  if(command === "testing"){
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
+    const Role = "766084383064850462";
+    let member = message.author
+    member.addRole(Role);
+  }
+
   if(command === "bubblesort"){
     const args = message.content.split(' ');
     var numArgs = args
