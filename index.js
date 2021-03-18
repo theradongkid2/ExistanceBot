@@ -710,16 +710,14 @@ client.on("message", async message => {
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
-    let member = message.author
-    member.addRole(Role);
+    message.member.addRole(Role);
   }
 
   if(command === "testing"){
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
-    let member = message.author
-    member.removeRole(Role);
+    message.member.removeRole(Role);
   }
 
   if(command === "bubblesort"){
