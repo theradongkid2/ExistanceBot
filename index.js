@@ -410,6 +410,7 @@ client.on("message", async message => {
           },
       };
       client.channels.get("767659295230918676").send({ embed: warnEmbed });
+      message.reply(`${member} has been warned.`);
       client.users.get(memberId).send(`You have been warned in ${server} for ${reason}`);
   };
   
@@ -826,6 +827,7 @@ client.on("message", async message => {
     };
     client.channels.get("767659295230918676").send({ embed: warnEmbed });
     client.users.get(memberId).send(`You have been muted in ${server} for ${reason}`);
+    message.reply(`${member} is now muted.`);
   }
 
   if(command === "unmute"){
@@ -856,6 +858,7 @@ client.on("message", async message => {
         },
     };
     client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    message.reply(`${member} is now unmuted.`);
   }
 
 });
