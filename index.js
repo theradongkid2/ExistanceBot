@@ -825,7 +825,7 @@ client.on("message", async message => {
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
-    client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    //client.channels.get("767659295230918676").send({ embed: warnEmbed });
     client.users.get(memberId).send(`You have been muted in ${server} for ${reason}`);
   }
 
@@ -857,7 +857,7 @@ client.on("message", async message => {
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
-    client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    //client.channels.get("767659295230918676").send({ embed: warnEmbed });
   }
 
 });
