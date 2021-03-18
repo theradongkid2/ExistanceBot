@@ -805,7 +805,6 @@ client.on("message", async message => {
     if(!reason) reason = "No reason provided!"
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.addRole(Role);
-    message.channel.send(`${member} was muted by ${message.author}. Reason: ${reason}`);
 
     const warnEmbed = {
       color: 0xFF69B4,
@@ -826,6 +825,7 @@ client.on("message", async message => {
         },
     };
     //client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    message.channel.send({ embed: warnEmbed });
     client.users.get(memberId).send(`You have been muted in ${server} for ${reason}`);
   }
 
@@ -838,7 +838,6 @@ client.on("message", async message => {
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.removeRole(Role);
-    message.channel.send(`${member} is now umuted.`);
     const warnEmbed = {
       color: 0xFF69B4,
       title: `Unmute Log:`,
@@ -848,7 +847,7 @@ client.on("message", async message => {
       fields: [
         {
         name: `Muted User: ${member}`,
-        value: `User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+        value: `User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
         },
       ],
       timestamp: new Date(),
@@ -857,6 +856,7 @@ client.on("message", async message => {
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
+    message.channel.send({ embed: warnEmbed });
     //client.channels.get("767659295230918676").send({ embed: warnEmbed });
   }
 
