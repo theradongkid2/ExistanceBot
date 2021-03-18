@@ -354,7 +354,27 @@ client.on("message", async message => {
       await member.kick(reason)
         .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
       message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
-  
+      let memberId = message.mentions.members.first().id
+      let server = message.guild.name;
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Ban Log:`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Banned User: ${member.user.tag}`,
+          value: `Ban Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+          },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot by Joshua Koh',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      client.channels.get("767659295230918676").send({ embed: warnEmbed });
     }
   
   
@@ -374,6 +394,27 @@ client.on("message", async message => {
       await member.ban(reason)
         .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
       message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+      let memberId = message.mentions.members.first().id
+      let server = message.guild.name;
+      const warnEmbed = {
+        color: 0xFF69B4,
+        title: `Ban Log:`,
+        thumbnail: {
+          url: member.user.avatarURL
+        },
+        fields: [
+          {
+          name: `Banned User: ${member.user.tag}`,
+          value: `Ban Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+          },
+        ],
+        timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot by Joshua Koh',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+      };
+      client.channels.get("767659295230918676").send({ embed: warnEmbed });
     }
   
 
@@ -386,7 +427,6 @@ client.on("message", async message => {
       if(!member){return message.channel.send("Please Specify a Member to Be Warned")}
   
     let memberId = message.mentions.members.first().id
-    let nickname = member ? member.displayName : null;
     let reason = args.slice(1).join(' ');
     let server = message.guild.name;
       if(!reason){reason = "No reason provided"};
@@ -399,7 +439,7 @@ client.on("message", async message => {
         },
         fields: [
           {
-          name: `Warned User: ${nickname}`,
+          name: `Warned User: ${member.user.tag}`,
           value: `Warn Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
           },
         ],
