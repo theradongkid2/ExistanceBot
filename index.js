@@ -814,7 +814,7 @@ client.on("message", async message => {
       },
       fields: [
         {
-        name: `Muted User: ${member}`,
+        name: `Muted User: ${member.user.tag}`,
         value: `Warn Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
         },
       ],
