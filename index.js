@@ -799,7 +799,7 @@ client.on("message", async message => {
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
-    let memberId = essage.mentions.members.first().id
+    let memberId = message.mentions.members.first().id
     let server = message.guild.name;
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided!"
@@ -834,7 +834,7 @@ client.on("message", async message => {
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
-    let memberId = essage.mentions.members.first().id
+    let memberId = message.mentions.members.first().id
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be warned.")
     member.removeRole(Role);
