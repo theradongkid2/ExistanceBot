@@ -133,7 +133,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command === "help"){
+  if(command === "help" && message.guild.id !== "716610591439061002"){
     const args = message.content.split(' ');
     if(!args[1]){
       const warnEmbed = {
@@ -167,7 +167,38 @@ client.on("message", async message => {
           },
       };
       message.channel.send({ embed: warnEmbed });
-    } else if(args[1] === "mod"){
+    } else if(command === "help" && message.guild.id === "716610591439061002"){
+      const args = message.content.split(' ');
+      if(!args[1]){
+        const warnEmbed = {
+          color: 0xFF69B4,
+          title: `Help - Command Categories`,
+          fields: [
+            {
+            name: `Moderator Commands`,
+            value: `Use e!help mod`
+            },
+            {
+              name: `Fun Commands`,
+              value: `Use e!help fun`
+              },
+              {
+                name: "Image Commands",
+                value: "Use e!help image"
+              },
+                {
+                    name: `Miscellaneous Commands`,
+                    value: `Use e!help misc`
+                    },
+          ],
+          timestamp: new Date(),
+            footer: {
+                text: 'ExistenceBot by Joshua Koh',
+                icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+            },
+        };
+        message.channel.send({ embed: warnEmbed });
+      }else if(args[1] === "mod"){
       const warnEmbed = {
         color: 0xFF69B4,
         title: `Help - Moderator Commands`,
@@ -331,7 +362,11 @@ client.on("message", async message => {
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   };
   if(command === "purge") {
+<<<<<<< Updated upstream
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
@@ -342,7 +377,11 @@ client.on("message", async message => {
     }
   
      if(command === "kick") {
+<<<<<<< Updated upstream
       if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
       if(!member)
@@ -379,7 +418,11 @@ client.on("message", async message => {
   
   
     if(command === "ban") {
+<<<<<<< Updated upstream
       if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       
       let member = message.mentions.members.first();
@@ -419,7 +462,11 @@ client.on("message", async message => {
   
 
   if(command === "warn"){
+<<<<<<< Updated upstream
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
+=======
+    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
   
     let moderator = message.member.user
@@ -512,7 +559,11 @@ client.on("message", async message => {
   }
 
   if(command === "tommyshut"){
+<<<<<<< Updated upstream
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommyShut === true){
       tommyShut = false
@@ -524,7 +575,11 @@ client.on("message", async message => {
   }
 
   if(command === "tommysaid"){
+<<<<<<< Updated upstream
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommySaid === false){
       tommySaid = true
@@ -738,7 +793,11 @@ client.on("message", async message => {
   }
 
   if(command === "executeorder69"){
+<<<<<<< Updated upstream
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+=======
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+>>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = message.mentions.roles.first();
     message.mentions.members.forEach(member => {
