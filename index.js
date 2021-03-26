@@ -198,42 +198,42 @@ client.on("message", async message => {
             },
         };
         message.channel.send({ embed: warnEmbed });
-      }else if(args[1] === "mod"){
-      const warnEmbed = {
-        color: 0xFF69B4,
-        title: `Help - Moderator Commands`,
-        fields: [
-          {
-          name: `Kick (Admins Only)`,
-          value: `Usage: e!kick @user reason [used to kick members]`
-          },
-          {
-            name: `Ban (Admins Only)`,
-            value: `Usage: e!ban @user reason [used to ban members]`
+      } else if(args[1] === "mod"){
+        const warnEmbed = {
+          color: 0xFF69B4,
+          title: `Help - Moderator Commands`,
+          fields: [
+            {
+            name: `Kick (Admins Only)`,
+            value: `Usage: e!kick @user reason [used to kick members]`
             },
             {
-              name: `Warn (Admins Only)`,
-              value: `Usage: e!warn @user reason [used to warn members]`
+              name: `Ban (Admins Only)`,
+              value: `Usage: e!ban @user reason [used to ban members]`
               },
               {
-                name: `Purge (Admins Only)`,
-                value: `Usage: e!purge number (1-100) [used to clear/delete an amount of messages]`
+                name: `Warn (Admins Only)`,
+                value: `Usage: e!warn @user reason [used to warn members]`
                 },
                 {
-                  name: `Mute (Admins Only)`,
-                  value: `Usage: e!mute @user reason [used to mute members]`
+                  name: `Purge (Admins Only)`,
+                  value: `Usage: e!purge number (1-100) [used to clear/delete an amount of messages]`
                   },
                   {
-                    name: `Unmute (Admins Only)`,
-                    value: `Usage: e!unmute @user [used to unmute members]`
+                    name: `Mute (Admins Only)`,
+                    value: `Usage: e!mute @user reason [used to mute members]`
                     },
-        ],
-        timestamp: new Date(),
-          footer: {
-              text: 'ExistenceBot by Joshua Koh',
-              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
-          },
-      };
+                    {
+                      name: `Unmute (Admins Only)`,
+                      value: `Usage: e!unmute @user [used to unmute members]`
+                      },
+          ],
+          timestamp: new Date(),
+            footer: {
+                text: 'ExistenceBot by Joshua Koh',
+                icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+            },
+        };
       message.channel.send({ embed: warnEmbed });
     } else if(args[1] === "fun"){
       const warnEmbed = {
@@ -362,11 +362,7 @@ client.on("message", async message => {
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   };
   if(command === "purge") {
-<<<<<<< Updated upstream
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
@@ -377,11 +373,7 @@ client.on("message", async message => {
     }
   
      if(command === "kick") {
-<<<<<<< Updated upstream
-      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
       if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
       if(!member)
@@ -418,11 +410,7 @@ client.on("message", async message => {
   
   
     if(command === "ban") {
-<<<<<<< Updated upstream
-      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
       if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
       
       let member = message.mentions.members.first();
@@ -462,11 +450,7 @@ client.on("message", async message => {
   
 
   if(command === "warn"){
-<<<<<<< Updated upstream
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
-=======
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
   
     let moderator = message.member.user
@@ -559,11 +543,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommyshut"){
-<<<<<<< Updated upstream
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommyShut === true){
       tommyShut = false
@@ -575,11 +555,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommysaid"){
-<<<<<<< Updated upstream
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
     if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommySaid === false){
       tommySaid = true
@@ -793,11 +769,7 @@ client.on("message", async message => {
   }
 
   if(command === "executeorder69"){
-<<<<<<< Updated upstream
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
-=======
     if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ── ・", "admin", "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
->>>>>>> Stashed changes
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = message.mentions.roles.first();
     message.mentions.members.forEach(member => {
