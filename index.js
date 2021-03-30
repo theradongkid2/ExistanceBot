@@ -7,7 +7,7 @@ var counter = 0;
 var tommyShut = false;
 var tommySaid = false;
 var lastUser = "819852916172914699"
-var botHurtResponses = ["do you dare to harm the seraphim?", "are you challenging me mortal", "how dare you try commit such war crimes", `e!warn @user bad boy`, "never going to happen", "haha, look where you are then look up.", "Would you like it if I did it to you?", "Perms are a privalege, not a right", "So you have chosen death", "do you honestly think that you could find a loophole in my code?", "Nice Try"];
+var botHurtResponses = ["you cant catch me im the gingerbread man" , "do you dare to harm the seraphim?", "are you challenging me mortal", "how dare you try commit such war crimes", `e!warn @user bad boy`, "never going to happen", "haha, look where you are then look up.", "Would you like it if I did it to you?", "Perms are a privalege, not a right", "So you have chosen death", "do you honestly think that you could find a loophole in my code?", "Nice Try"];
 var userHurtResponses = ["are you sure about this", "don't do it commander", "call lifeline on 13 11 14", "what are you? a masochist?", "please do not make me kill you", "calm down calm down, theres no need to do that", "no"]
 function randomise(num){
   return Math.floor (Math.random() * (num - 1 + 1)) + 1;
@@ -348,7 +348,7 @@ client.on("message", async message => {
       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
       if(!member)
         return message.reply("Please mention a valid member of this server");
-        if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+        if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
         if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
       if(!member.kickable) 
         return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
@@ -390,7 +390,7 @@ client.on("message", async message => {
         return message.reply("Please mention a valid member of this server");
       if(!member.bannable) 
         return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
-      if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+      if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
       if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
@@ -849,7 +849,7 @@ client.on("message", async message => {
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided!"
     if(!member) return message.channel.send("Please specify member to be muted.")
-    if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+    if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
     if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
     member.addRole(Role);
 
