@@ -368,7 +368,7 @@ client.on("message", async message => {
         fields: [
           {
           name: `Kicked User: ${member.user.tag}`,
-          value: `Kick Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+          value: `Kick Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
           },
         ],
         timestamp: new Date(),
@@ -409,7 +409,7 @@ client.on("message", async message => {
         fields: [
           {
           name: `Banned User: ${member.user.tag}`,
-          value: `Ban Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${moderator}\n Server: ${server}`
+          value: `Ban Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
           },
         ],
         timestamp: new Date(),
