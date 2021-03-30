@@ -7,7 +7,7 @@ var counter = 0;
 var tommyShut = false;
 var tommySaid = false;
 var lastUser = "819852916172914699"
-var botHurtResponses = ("do you dare to harm the seraphim?", "are you challenging me mortal", "how dare you try commit such war crimes", `e!warn ${member} bad boy`, "never going to happen", "haha, look where you are then look up.", "Would you like it if I did it to you?", "Perms are a privalege, not a right", "So you have chosen death", "do you honestly think that you could find a loophole in my code?", "Nice Try");
+var botHurtResponses = ("do you dare to harm the seraphim?", "are you challenging me mortal", "how dare you try commit such war crimes", `e!warn @user bad boy`, "never going to happen", "haha, look where you are then look up.", "Would you like it if I did it to you?", "Perms are a privalege, not a right", "So you have chosen death", "do you honestly think that you could find a loophole in my code?", "Nice Try");
 var userHurtResponses = ("are you sure about this", "don't do it commander", "call lifeline on 13 11 14", "what are you? a masochist?", "please do not make me kill you", "calm down calm down, theres no need to do that", "no")
 function randomise(num){
   return Math.floor (Math.random() * (num - 1 + 1)) + 1;
