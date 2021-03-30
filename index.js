@@ -348,6 +348,7 @@ client.on("message", async message => {
       if(!member)
         return message.reply("Please mention a valid member of this server");
       if(member.id === message.author.id) return message.reply("What are you a Masochist?");
+      if(member.id === "819852916172914699") return message.reply("How dare you commit such war crimes!!!");
       if(!member.kickable) 
         return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
       let reason = args.slice(1).join(' ');
@@ -358,7 +359,7 @@ client.on("message", async message => {
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
       const warnEmbed = {
-        color: 0xFF69B4,
+        color: 0xFF0000,
         title: `Kick Log:`,
         thumbnail: {
           url: member.user.avatarURL
@@ -389,7 +390,7 @@ client.on("message", async message => {
       if(member.id === message.author.id) return message.reply("What are you a Masochist?");
       if(!member.bannable) 
         return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
-  
+      if(member.id === "819852916172914699") return message.reply("How dare you commit such war crimes!!!");
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
       
@@ -399,7 +400,7 @@ client.on("message", async message => {
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
       const warnEmbed = {
-        color: 0xFF69B4,
+        color: 0x000000,
         title: `Ban Log:`,
         thumbnail: {
           url: member.user.avatarURL
@@ -434,7 +435,7 @@ client.on("message", async message => {
       if(!reason){reason = "No reason provided"};
     
       const warnEmbed = {
-        color: 0xFF69B4,
+        color: 0xFFFF00,
         title: `Warn Log:`,
         thumbnail: {
           url: member.user.avatarURL
@@ -846,12 +847,13 @@ client.on("message", async message => {
     let server = message.guild.name;
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided!"
-    if(!member) return message.channel.send("Please specify member to be warned.")
+    if(!member) return message.channel.send("Please specify member to be muted.")
+    if(member.id === "819852916172914699") return message.reply("How dare you commit such war crimes!!!");
     if(member.id === message.author.id) return message.reply("What are you a Masochist?");
     member.addRole(Role);
 
     const warnEmbed = {
-      color: 0xFF69B4,
+      color: 0xFFA500,
       title: `Mute Log:`,
       thumbnail: {
         url: member.user.avatarURL
@@ -880,11 +882,11 @@ client.on("message", async message => {
     let member = message.mentions.members.first();
     let memberId = message.mentions.members.first().id
     let server = message.guild.name;
-    if(!member) return message.channel.send("Please specify member to be warned.")
+    if(!member) return message.channel.send("Please specify member to be unmuted.")
     if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
     member.removeRole(Role);
     const warnEmbed = {
-      color: 0xFF69B4,
+      color: 0x00FF00,
       title: `Unmute Log:`,
       thumbnail: {
         url: member.user.avatarURL
