@@ -348,8 +348,8 @@ client.on("message", async message => {
       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
       if(!member)
         return message.reply("Please mention a valid member of this server");
-        if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
-        if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(8)]);
+        if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+        if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
       if(!member.kickable) 
         return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
       let reason = args.slice(1).join(' ');
@@ -390,8 +390,8 @@ client.on("message", async message => {
         return message.reply("Please mention a valid member of this server");
       if(!member.bannable) 
         return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
-      if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
-      if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(8)]);
+      if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+      if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
       
@@ -849,8 +849,8 @@ client.on("message", async message => {
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided!"
     if(!member) return message.channel.send("Please specify member to be muted.")
-    if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
-    if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(8)]);
+    if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(10)]);
+    if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
     member.addRole(Role);
 
     const warnEmbed = {
