@@ -752,13 +752,15 @@ client.on("message", async message => {
   }
 
   if(command === "test"){
-    if(message.author.id !== "487168307506708490")
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
     message.member.addRole(Role);
   }
 
   if(command === "testing"){
+    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+        return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
     message.member.removeRole(Role);
   }
