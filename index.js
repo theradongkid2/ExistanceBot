@@ -30,7 +30,6 @@ function scheduleWarning(time, triggerThis){
 
   // get the interval in ms from now to the timepoint when to trigger the alarm
   const firstTriggerAfterMs = startTime.getTime() - now.getTime();
-  console.log(firstTriggerAfterMs)
 
   // trigger the function triggerThis() at the timepoint
   // create setInterval when the timepoint is reached to trigger it every day at this timepoint
@@ -55,7 +54,6 @@ client.on("ready", () => {
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
     counter++;
-    console.log(counter);
     let x = randomise(5)
     if(counter % x === 0 && lastUser !== "819852916172914699") message.channel.send("mm");
     if(message.content !== "mm"){
