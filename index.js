@@ -59,7 +59,11 @@ client.on("message", async message => {
       message.channel.send("mm");
     }
     if(message.content !== "mm"){
-      message.delete()
+      message.delete().catch(error => {
+        if (error.code !== Discord.Constants.APIErrors.UNKNOWN_MESSAGE) {
+          console.error("");
+        }
+      });
       
       counter--
       if(message.author.bot) return;
