@@ -70,7 +70,7 @@ client.on("message", async message => {
       message.delete()
       counter--
       if(message.author.bot) return;
-      client.users.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
+      client.users.cache.get(message.author.id).send(`You pulled a double mm!!! This is your first warning :angry:!`);
       return
     }
     lastUser = message.author.id;
@@ -455,7 +455,7 @@ client.on("message", async message => {
       };
       client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
       message.reply(`${member} has been warned.`);
-      client.users.get(memberId).send(`You have been warned in ${server} for ${reason}`);
+      client.users.cache.get(memberId).send(`You have been warned in ${server} for ${reason}`);
   };
   
   
