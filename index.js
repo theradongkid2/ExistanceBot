@@ -45,10 +45,10 @@ client.on("ready", () => {
   console.log(`Existence Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   client.user.setActivity(`e!help - Having an Existential Crisis`);
   console.log("Servers:");
-    client.guilds.forEach((guild) => {
+    client.guilds.cache.forEach((guild) => {
         console.log(" - " + guild.name);
     });
-  scheduleWarning('19:45', function() { client.channels.get("699967983136800890").send("hi"); });
+  scheduleWarning('19:45', function() { client.channels.cache.get("699967983136800890").send("hi"); });
 });
 
 
@@ -63,7 +63,7 @@ client.on("message", async message => {
       
       counter--
       if(message.author.bot) return;
-      client.users.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
+      client.users.cache.get(message.author.id).send(`You sent a non mm in mm channel!!! This is your first warning :angry:!`);
       return
     }
     if(message.author.id === lastUser){
@@ -83,7 +83,7 @@ client.on("message", async message => {
   if(message.author.id === "354170428727754753"){
     if(message.channel.id === "763567159871406080") return;
     message.reply("Shut Up")
-    client.users.get(message.author.id).send(`Management would kindly request for you to shut up. :)`);
+    client.users.cache.get(message.author.id).send(`Management would kindly request for you to shut up. :)`);
   }
 })
 
@@ -332,7 +332,7 @@ client.on("message", async message => {
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   };
   if(command === "purge") {
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
@@ -343,9 +343,9 @@ client.on("message", async message => {
     }
   
      if(command === "kick") {
-      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+      if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-      let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+      let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
       if(!member)
         return message.reply("Please mention a valid member of this server");
         if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
@@ -377,12 +377,12 @@ client.on("message", async message => {
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
-      client.channels.get("767659295230918676").send({ embed: warnEmbed });
+      client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
     }
   
   
     if(command === "ban") {
-      if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+      if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       
       let member = message.mentions.members.first();
@@ -418,16 +418,16 @@ client.on("message", async message => {
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
-      client.channels.get("767659295230918676").send({ embed: warnEmbed });
+      client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
     }
   
 
   if(command === "warn"){
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
+    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
         return message.reply("Sorry, you don't have permissions to use this!");
   
     let moderator = message.member.user
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
       if(!member){return message.channel.send("Please Specify a Member to Be Warned")}
     
     let memberId = message.mentions.members.first().id
@@ -453,7 +453,7 @@ client.on("message", async message => {
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
-      client.channels.get("767659295230918676").send({ embed: warnEmbed });
+      client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
       message.reply(`${member} has been warned.`);
       client.users.get(memberId).send(`You have been warned in ${server} for ${reason}`);
   };
@@ -516,7 +516,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommyshut"){
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommyShut === true){
       tommyShut = false
@@ -528,7 +528,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommysaid"){
-    if(!message.member.roles.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommySaid === false){
       tommySaid = true
@@ -573,10 +573,10 @@ client.on("message", async message => {
   }
 
   if(command === "adminaboose"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Empress ・ ── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-    var role = message.guild.roles.find(role => role.id === "722234813041475696");
-    message.member.addRole(role);
+    var role = message.guild.roles.cache.find(role => role.id === "722234813041475696");
+    message.member.roles.add(role);
     message.delete()
   }
 
@@ -742,27 +742,27 @@ client.on("message", async message => {
   }
 
   if(command === "executeorder69"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = message.mentions.roles.first();
-    message.mentions.members.forEach(member => {
-      member.removeRole(Role).catch(e => console.error(e));
+    message.mentions.members.cache.forEach(member => {
+      member.roles.remove(Role).catch(e => console.error(e));
     });
     message.reply("Order Executed...")
   }
 
   if(command === "test"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
-    message.member.addRole(Role);
+    message.member.roles.add(Role);
   }
 
   if(command === "testing"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
-    message.member.removeRole(Role);
+    message.member.roles.remove(Role);
   }
 
   if(command === "bubblesort"){
@@ -840,7 +840,7 @@ client.on("message", async message => {
   }
 
   if(command === "mute"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
@@ -851,7 +851,7 @@ client.on("message", async message => {
     if(!member) return message.channel.send("Please specify member to be muted.")
     if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
     if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
-    member.addRole(Role);
+    member.roles.add(Role);
 
     const warnEmbed = {
       color: 0xFFA500,
@@ -871,13 +871,13 @@ client.on("message", async message => {
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
-    client.channels.get("767659295230918676").send({ embed: warnEmbed });
-    client.users.get(memberId).send(`You have been muted in ${server} for ${reason}`);
+    client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
+    client.users.cache.get(memberId).send(`You have been muted in ${server} for ${reason}`);
     message.reply(`${member} is now muted.`);
   }
 
   if(command === "unmute"){
-    if(!message.member.roles.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
@@ -885,7 +885,7 @@ client.on("message", async message => {
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be unmuted.")
     if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
-    member.removeRole(Role);
+    member.roles.remove(Role);
     const warnEmbed = {
       color: 0x00FF00,
       title: `Unmute Log:`,
@@ -904,7 +904,7 @@ client.on("message", async message => {
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
-    client.channels.get("767659295230918676").send({ embed: warnEmbed });
+    client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
     message.reply(`${member} is now unmuted.`);
   }
 
