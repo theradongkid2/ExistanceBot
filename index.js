@@ -158,16 +158,13 @@ client.on("message", async message => {
               value: "Use e!help image"
             },
               {
-                name: `Tommy Diao Torture Commands`,
-                value: `Use e!help diao`
-                },{
                   name: `Miscellaneous Commands`,
                   value: `Use e!help misc`
                   },
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -204,7 +201,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -237,7 +234,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -258,7 +255,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -283,7 +280,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -308,7 +305,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -377,7 +374,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -418,7 +415,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -453,7 +450,7 @@ client.on("message", async message => {
         ],
         timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
       };
@@ -496,7 +493,7 @@ client.on("message", async message => {
             ],
           timestamp: new Date(),
           footer: {
-              text: 'ExistenceBot by Joshua Koh',
+              text: 'ExistenceBot by MasterKohder6',
               icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
           },
           }
@@ -568,7 +565,7 @@ client.on("message", async message => {
       
       timestamp: new Date(),
       footer: {
-          text: 'ExistenceBot by Joshua Koh',
+          text: 'ExistenceBot by MasterKohder6',
           icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
       },
     };
@@ -603,7 +600,7 @@ client.on("message", async message => {
         
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
       };
@@ -626,7 +623,7 @@ client.on("message", async message => {
         
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
       };
@@ -649,7 +646,7 @@ client.on("message", async message => {
         
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
       };
@@ -669,7 +666,7 @@ client.on("message", async message => {
         description: `${fact}`,
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
       };
@@ -713,7 +710,7 @@ client.on("message", async message => {
         
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         }
       };
@@ -737,7 +734,7 @@ client.on("message", async message => {
         
         timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
       };
@@ -871,7 +868,7 @@ client.on("message", async message => {
       ],
       timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
@@ -904,7 +901,7 @@ client.on("message", async message => {
       ],
       timestamp: new Date(),
         footer: {
-            text: 'ExistenceBot by Joshua Koh',
+            text: 'ExistenceBot by MasterKohder6',
             icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
         },
     };
