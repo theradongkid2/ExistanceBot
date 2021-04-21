@@ -333,7 +333,7 @@ client.on("message", async message => {
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   };
   if(command === "purge") {
-    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
@@ -344,7 +344,7 @@ client.on("message", async message => {
     }
   
      if(command === "kick") {
-      if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+      if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
       if(!member)
@@ -383,7 +383,7 @@ client.on("message", async message => {
   
   
     if(command === "ban") {
-      if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+      if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
       
       let member = message.mentions.members.first();
@@ -424,7 +424,7 @@ client.on("message", async message => {
   
 
   if(command === "warn"){
-    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)))
+    if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)))
         return message.reply("Sorry, you don't have permissions to use this!");
   
     let moderator = message.member.user
@@ -517,7 +517,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommyshut"){
-    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommyShut === true){
       tommyShut = false
@@ -529,7 +529,7 @@ client.on("message", async message => {
   }
 
   if(command === "tommysaid"){
-    if(!message.member.roles.cache.some(r=>["・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     if(tommySaid === false){
       tommySaid = true
@@ -743,7 +743,7 @@ client.on("message", async message => {
   }
 
   if(command === "executeorder69"){
-    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = message.mentions.roles.first();
     message.mentions.members.cache.forEach(member => {
@@ -753,14 +753,14 @@ client.on("message", async message => {
   }
 
   if(command === "test"){
-    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
     message.member.roles.add(Role);
   }
 
   if(command === "testing"){
-    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "722234813041475696";
     message.member.roles.remove(Role);
@@ -841,7 +841,7 @@ client.on("message", async message => {
   }
 
   if(command === "mute"){
-    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
@@ -878,7 +878,7 @@ client.on("message", async message => {
   }
 
   if(command === "unmute"){
-    if(!message.member.roles.cache.some(r=>[ "・ ── ・ Emperor ・ ─── ・", "・ ── ・ Empress ・ ─── ・", "・ ── ・ Archdukes ・ ── ・", "Ruse"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
