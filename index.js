@@ -397,7 +397,7 @@ client.on("message", async message => {
       if(!reason) reason = "No reason provided";
       
       await member.ban(reason)
-        .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
+        .catch(error => message.channel.send(`Sorry ${message.author} I couldn't ban because of : ${error}`));
       message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
