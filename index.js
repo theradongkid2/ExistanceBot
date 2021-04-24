@@ -50,6 +50,15 @@ client.on("ready", () => {
   scheduleWarning('19:45', function() { client.channels.cache.get("699967983136800890").send("hi"); });
 });
 
+client.on("message", async message => {
+  if(message.channel.id === "792392107414257745"){
+    if(message.author.id === "413882334593417216"){
+      message.delete();
+    } else if(message.author.id === "792579376365174824"){
+      message.delete();
+    }
+  }
+})
 
 client.on("message", async message => {
   if(message.channel.id === "763567159871406080"){
