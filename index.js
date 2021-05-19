@@ -51,13 +51,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  if(message.channel.id === "792392107414257745"){
-    if(message.author.id === "413882334593417216"){
-      message.delete();
-    } else if(message.author.id === "792579376365174824"){
-      message.delete();
-    }
-  }
+  if(message.channel.id === "792392107414257745" && message.author.id === "413882334593417216") message.delete();
 })
 
 client.on("message", async message => {
@@ -402,12 +396,12 @@ client.on("message", async message => {
         return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
       if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
       if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
-      let reason = args.slice(1).join(' ');
-      if(!reason) reason = "No reason provided";
+      let Reason = args.slice(1).join(' ');
+      if(!Reason) Reason = "No reason provided";
       
-      await member.ban(reason)
+      await member.ban({reason: Reason})
         .catch(error => message.channel.send(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-      message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+      message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${Reason}`);
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
       const warnEmbed = {
@@ -419,7 +413,7 @@ client.on("message", async message => {
         fields: [
           {
           name: `Banned User: ${member.user.tag}`,
-          value: `Ban Reason: ${reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
+          value: `Ban Reason: ${Reason}\n User Id: ${memberId}\n Moderator: ${message.author}\n Server: ${server}`
           },
         ],
         timestamp: new Date(),
