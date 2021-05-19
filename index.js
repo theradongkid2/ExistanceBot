@@ -135,8 +135,7 @@ client.on("message", async message => {
   }
 })
 
-client.on("guildMemberRemove", async message => {
-  let member = new Discord.GuildMember
+client.on("guildMemberRemove", async member => {
   const warnEmbed = {
     color: 0x808080,
     title: `User Left:`,
@@ -158,11 +157,10 @@ client.on("guildMemberRemove", async message => {
   client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
 })
 
-client.on("guildMemberAdd", async message => {
-  let member = new Discord.GuildMember
+client.on("guildMemberAdd", async member => {
   const warnEmbed = {
     color: 0x00FF00,
-    title: `New User!:`,
+    title: `New User:`,
     thumbnail: {
       url: member.user.avatarURL
     },
