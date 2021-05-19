@@ -136,6 +136,7 @@ client.on("message", async message => {
 })
 
 client.on("guildMemberRemove", async message => {
+  let member = new Discord.GuildMember
   const warnEmbed = {
     color: 0x808080,
     title: `User Left:`,
@@ -158,6 +159,7 @@ client.on("guildMemberRemove", async message => {
 })
 
 client.on("guildMemberAdd", async message => {
+  let member = new Discord.GuildMember
   const warnEmbed = {
     color: 0x00FF00,
     title: `New User!:`,
