@@ -359,7 +359,10 @@ client.on("message", async message => {
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
       await member.kick(reason)
-        .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
+        .catch(error => {
+          message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`)
+          return;
+        });
       message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
@@ -400,7 +403,10 @@ client.on("message", async message => {
       if(!Reason) Reason = "No reason provided";
       
       await member.ban({reason: Reason})
-        .catch(error => message.channel.send(`Sorry ${message.author} I couldn't ban because of : ${error}`));
+        .catch(error => {
+          message.channel.send(`Sorry ${message.author} I couldn't ban because of : ${error}`);
+          return;
+        });
       message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${Reason}`);
       let memberId = message.mentions.members.first().id
       let server = message.guild.name;
