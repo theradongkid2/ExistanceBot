@@ -135,6 +135,50 @@ client.on("message", async message => {
   }
 })
 
+client.on("guildMemberRemove", async message => {
+  const warnEmbed = {
+    color: 0x808080,
+    title: `User Left:`,
+    thumbnail: {
+      url: member.user.avatarURL
+    },
+    fields: [
+      {
+      name: `${member.user.tag}`,
+      value: `Left the Existence Server at ${new Date()}`
+      },
+    ],
+    timestamp: new Date(),
+      footer: {
+          text: 'ExistenceBot by MasterKohder6',
+          icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+      },
+  };
+  client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
+})
+
+client.on("guildMemberAdd", async message => {
+  const warnEmbed = {
+    color: 0x00FF00,
+    title: `New User!:`,
+    thumbnail: {
+      url: member.user.avatarURL
+    },
+    fields: [
+      {
+      name: `${member.user.tag}`,
+      value: `Joined the Existence Server at ${new Date()}`
+      },
+    ],
+    timestamp: new Date(),
+      footer: {
+          text: 'ExistenceBot by MasterKohder6',
+          icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+      },
+  };
+  client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
+})
+
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
