@@ -42,7 +42,7 @@ function scheduleWarning(time, triggerThis){
 //Terminal User Interface
 client.on("ready", () => {
   console.log(`Existence Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  client.user.setActivity(`e!help - Having an Existential Crisis`, { type: 'STREAMING' , url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"});
+  client.user.setActivity(`e!help - Having an Existential Crisis`, { type: 'COMPETING' , url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"});
   console.log("Servers:");
     client.guilds.cache.forEach((guild) => {
         console.log(" - " + guild.name);
