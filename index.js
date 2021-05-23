@@ -47,7 +47,7 @@ client.on("ready", () => {
     client.guilds.cache.forEach((guild) => {
         console.log(" - " + guild.name);
     });
-  scheduleWarning('19:45', function() { client.channels.cache.get("699967983136800890").send("hi"); });
+  scheduleWarning('20:45', function() { client.channels.cache.get("699967983136800890").send("hi"); });
 });
 
 client.on("message", async message => {
@@ -244,7 +244,11 @@ client.on("message", async message => {
                   {
                     name: `Unmute (Admins Only)`,
                     value: `Usage: e!unmute @user [used to unmute members]`
-                    },
+                    },  
+                    {
+                      name: `Snipe`,
+                      value: `Usage: e!snipe [Show last deleted message and who sent it]`
+                      },
         ],
         timestamp: new Date(),
           footer: {
@@ -372,7 +376,7 @@ client.on("message", async message => {
 
   if(command === "time"){
     var date = new Date()
-    message.channel.send(`${date.getHours() + 11}:${date.getMinutes()}:${date.getSeconds()}`)
+    message.channel.send(`${date.getHours() + 10}:${date.getMinutes()}:${date.getSeconds()}`)
   }
   if(command === "say") {
       const sayMessage = args.join(" ");
