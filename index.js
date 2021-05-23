@@ -324,6 +324,10 @@ client.on("message", async message => {
               name: `User Statistics`,
               value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
               },
+            {
+              name: "User Avatar",
+              value: "Usage: e!avatar @user [shows the link to the user's avatar and displays it]"
+            }
         ],
         timestamp: new Date(),
           footer: {
@@ -964,6 +968,44 @@ client.on("message", async message => {
     };
     client.channels.cache.get("767659295230918676").send({ embed: warnEmbed });
     message.reply(`${member} is now unmuted.`);
+  }
+
+  if(command === "avatar"){
+    const args = message.content.split(' ');
+      console.log(args);
+      if(args.length > 2) {
+        message.channel.send(`Incorrect Usage: !stats | !stats <user_id> | !stats @mention`);
+      } else if(args.length === 2) {
+        const member = message.mentions.members.size === 1 ? 
+          message.mentions.members.first() :
+          message.guild.members.cache.get(args[1]);
+          let nickname = member ? member.displayName : null;
+        if(!member) member = message.author
+        if(member) {
+          const userEmbed = {
+            color: 0xFF69B4,
+            title: `${nickname}'s Avatar`,
+            thumbnail: {
+              url: member.user.avatarURL
+            },
+            fields: [
+              {
+                name: member.user.avatarURL,
+              }
+            ],
+          timestamp: new Date(),
+          footer: {
+              text: 'ExistenceBot by MasterKohder6',
+              icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+          },
+          }
+          
+          message.channel.send({ embed: userEmbed });
+        } else {
+          message.channel.send(`I couldn't find that member with ID ${args[1]}`);
+        }
+        
+      }
   }
 
 });
