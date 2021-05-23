@@ -1028,13 +1028,14 @@ client.on("message", async message => {
     }
     const userEmbed = {
       color: 0xFF69B4,
-      title: `${message.author} Deleted Message:`,
+      title: `${message.author.username} Deleted Message:`,
       thumbnail: {
         url: messageAuthor.avatarURL(String)
       },
       fields: [
         {
-          name: savedMessage
+          name: savedMessage,
+          value: "",
         }
       ],
     timestamp: new Date(),
