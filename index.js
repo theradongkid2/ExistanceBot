@@ -322,11 +322,11 @@ client.on("message", async message => {
               },
             {
               name: `User Statistics`,
-              value: `Usage: e!userstats @user [shows a user's avatar, status and join/creation dates.]`
+              value: `Usage: e!userstats @user or e!userstats <user_id> [shows a user's avatar, status and join/creation dates.]`
               },
             {
               name: "User Avatar",
-              value: "Usage: e!avatar @user [shows the link to the user's avatar and displays it]"
+              value: "Usage: e!avatar @user or e!avatar <user_id> [shows the link to the user's avatar and displays it. Leave blank to get own avatar.]"
             }
         ],
         timestamp: new Date(),
@@ -521,7 +521,7 @@ client.on("message", async message => {
     const args = message.content.split(' ');
       console.log(args);
       if(args.length > 2) {
-        message.channel.send(`Incorrect Usage: !stats | !stats <user_id> | !stats @mention`);
+        message.channel.send(`Incorrect Usage: e!userstats | e!userstats <user_id> | e!userstats @mention`);
       } else if(args.length === 2) {
         const member = message.mentions.members.size === 1 ? 
           message.mentions.members.first() :
@@ -974,7 +974,7 @@ client.on("message", async message => {
     const args = message.content.split(' ');
       console.log(args);
       if(args.length > 2) {
-        message.channel.send(`Incorrect Usage: !stats | !stats <user_id> | !stats @mention`);
+        message.channel.send(`Incorrect Usage: e!avatar | !avatar <user_id> | !avatar @mention`);
       } else if(args.length === 2) {
         const member = message.mentions.members.size === 1 ? 
           message.mentions.members.first() :
