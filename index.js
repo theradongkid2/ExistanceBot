@@ -914,7 +914,7 @@ client.on("message", async message => {
     if(!member) return message.channel.send("Please specify member to be muted.")
     if(member.id === "819852916172914699") return message.reply(botHurtResponses[randomise(11)]);
     if(member.id === message.author.id) return message.reply(userHurtResponses[randomise(6)]);
-    if(message.member.roles.cache.some(r=>[ "Muted"].includes(r.name)) )
+    if(!message.member.roles.cache.some(r=>[ "Muted"].includes(r.name)) )
         return message.reply(" give it a rest. My man is already muted. Why don't you try e!unmute");
     member.roles.add(Role);
 
@@ -950,8 +950,9 @@ client.on("message", async message => {
     let memberId = message.mentions.members.first().id
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be unmuted.")
-    if(message.member.roles.cache.some(r=>[ "Muted"].includes(r.name)) === false )
-        return message.reply(", the user you are trying to unmute is already unmuted! You can't give double the privalages to speak...");
+    if(message.member.roles.cache.some(r=>[ "Muted"].includes(r.name))){
+      return message.reply(" the user you are trying to unmute is already unmuted! You can't give double the privalages to speak...");
+    }
     member.roles.remove(Role);
     const warnEmbed = {
       color: 0x00FF00,
