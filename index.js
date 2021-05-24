@@ -84,14 +84,6 @@ client.on("message", async message => {
   }
 })
 
-var savedMessage;
-var messageAuthor;
-
-client.on("messageDelete", async message => {
-  savedMessage = message.content;
-  messageAuthor = message.author;
-})
-
 
 client.on("message", async message => {
   if(message.author.bot) return;
@@ -1019,35 +1011,7 @@ client.on("message", async message => {
         }
         
       }
-  }
-
-  if(command === "snipe"){
-    if(!savedMessage){
-      message.reply("Theres nothing to snipe!");
-      return;
     }
-    const userEmbed = {
-      color: 0xFF69B4,
-      title: `${message.author.username} Deleted Message:`,
-      thumbnail: {
-        url: messageAuthor.avatarURL(String)
-      },
-      fields: [
-        {
-          name: savedMessage,
-          value: "",
-        }
-      ],
-    timestamp: new Date(),
-    footer: {
-        text: 'ExistenceBot by MasterKohder6',
-        icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
-    },
-    }
-    
-    message.channel.send({ embed: userEmbed });
-
-  }
 
 });
 
