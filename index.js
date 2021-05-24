@@ -942,7 +942,7 @@ client.on("message", async message => {
   }
 
   if(command === "unmute"){
-    if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
+    if(message.member.id === message.author.id) return message.reply("Nice Try Buddy.");
     if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
