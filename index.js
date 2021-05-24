@@ -942,11 +942,11 @@ client.on("message", async message => {
   }
 
   if(command === "unmute"){
-    if(message.member.id === message.author.id) return message.reply("Nice Try Buddy.");
     if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
+    if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
     let memberId = message.mentions.members.first().id
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be unmuted.")
