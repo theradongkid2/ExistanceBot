@@ -340,6 +340,10 @@ client.on("message", async message => {
             {
               name: "User Avatar",
               value: "Usage: e!avatar @user or e!avatar <user_id> [shows the link to the user's avatar and displays it. Leave blank to get own avatar.]"
+            },
+            {
+              name:"Time",
+              value: "Usage: e!time [Shows the Time AEST]"
             }
         ],
         timestamp: new Date(),
@@ -399,6 +403,7 @@ client.on("message", async message => {
   if(command === "purge") {
     if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
       const deleteCount = parseInt(args[0], 10);
       if(!deleteCount || deleteCount < 2 || deleteCount > 10000)
         return message.reply("Please provide a number between 2 and 10000 for the number of messages to delete");
@@ -410,6 +415,7 @@ client.on("message", async message => {
      if(command === "kick") {
       if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+      if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy"); 
       let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
       if(!member)
         return message.reply("Please mention a valid member of this server");
@@ -452,7 +458,7 @@ client.on("message", async message => {
     if(command === "ban") {
       if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
-      
+      if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");  
       let member = message.mentions.members.first();
       if(!member)
         return message.reply("Please mention a valid member of this server");
@@ -496,7 +502,7 @@ client.on("message", async message => {
   if(command === "warn"){
     if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)))
         return message.reply("Sorry, you don't have permissions to use this!");
-  
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
     let moderator = message.member.user
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
       if(!member){return message.channel.send("Please Specify a Member to Be Warned")}
@@ -589,6 +595,7 @@ client.on("message", async message => {
   if(command === "tommyshut"){
     if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
     if(tommyShut === true){
       tommyShut = false
       message.channel.send("Tommy can now speak without being told to shut up.")
@@ -601,6 +608,7 @@ client.on("message", async message => {
   if(command === "tommysaid"){
     if(!message.member.roles.cache.some(r=>["・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
     if(tommySaid === false){
       tommySaid = true
       message.channel.send("I will translate tommy's speech from now on.")
@@ -913,6 +921,7 @@ client.on("message", async message => {
   if(command === "mute"){
     if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
     let memberId = message.mentions.members.first().id
@@ -952,6 +961,7 @@ client.on("message", async message => {
   if(command === "unmute"){
     if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
+    if(message.member.roles.cache.some(r=>["Muted"])) return message.reply("Nice Try Buddy");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
     if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
