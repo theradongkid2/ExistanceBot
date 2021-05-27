@@ -149,7 +149,7 @@ client.on("guildMemberRemove", async member => {
     color: 0x808080,
     title: `User Left:`,
     thumbnail: {
-      url: member.user.avatar
+      url: member.user.avatarURL(String)
     },
     fields: [
       {
@@ -171,7 +171,7 @@ client.on("guildMemberAdd", async member => {
     color: 0x00FF00,
     title: `New User:`,
     thumbnail: {
-      url: member.user.avatar
+      url: member.user.avatarURL(String)
     },
     fields: [
       {
@@ -431,7 +431,7 @@ client.on("message", async message => {
         color: 0xFF0000,
         title: `Kick Log:`,
         thumbnail: {
-          url: member.user.avatar
+          url: member.user.avatarURL(String)
         },
         fields: [
           {
@@ -475,7 +475,7 @@ client.on("message", async message => {
         color: 0x000000,
         title: `Ban Log:`,
         thumbnail: {
-          url: member.user.avatar
+          url: member.user.avatarURL(String)
         },
         fields: [
           {
@@ -510,7 +510,7 @@ client.on("message", async message => {
         color: 0xFFFF00,
         title: `Warn Log:`,
         thumbnail: {
-          url: member.user.avatar
+          url: member.user.avatarURL(String)
         },
         fields: [
           {
@@ -545,7 +545,7 @@ client.on("message", async message => {
             color: 0xFF69B4,
             title: `${nickname}`,
             thumbnail: {
-              url: member.user.avatar
+              url: member.user.avatarURL(String)
             },
             fields: [
               {
@@ -930,7 +930,7 @@ client.on("message", async message => {
       color: 0xFFA500,
       title: `Mute Log:`,
       thumbnail: {
-        url: member.user.avatar
+        url: member.user.avatarURL(String)
       },
       fields: [
         {
@@ -950,11 +950,11 @@ client.on("message", async message => {
   }
 
   if(command === "unmute"){
-    if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
     if(!message.member.roles.cache.some(r=>[ "・ Emperor ・", "・ Empress ・", "・ Archduke ・", "Ruse"].includes(r.name)) )
         return message.reply("Sorry, you don't have permissions to use this!");
     const Role = "766084383064850462";
     let member = message.mentions.members.first();
+    if(member.id === message.author.id) return message.reply("Nice Try Buddy.");
     let memberId = message.mentions.members.first().id
     let server = message.guild.name;
     if(!member) return message.channel.send("Please specify member to be unmuted.")
@@ -965,7 +965,7 @@ client.on("message", async message => {
       color: 0x00FF00,
       title: `Unmute Log:`,
       thumbnail: {
-        url: member.user.avatar
+        url: member.user.avatarURL(String)
       },
       fields: [
         {
@@ -999,11 +999,11 @@ client.on("message", async message => {
             color: 0xFF69B4,
             title: `${nickname}'s Avatar`,
             thumbnail: {
-              url: member.user.avatar
+              url: member.user.avatarURL(String)
             },
             fields: [
               {
-                name: member.user.avatar,
+                name: member.user.avatarURL(String),
               }
             ],
           timestamp: new Date(),
@@ -1030,7 +1030,7 @@ client.on("message", async message => {
       color: 0xFF69B4,
       title: `${message.author.username} Deleted Message:`,
       thumbnail: {
-        url: messageAuthor.avatar
+        url: messageAuthor.avatarURL(String)
       },
       fields: [
         {
