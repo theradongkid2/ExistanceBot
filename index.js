@@ -149,7 +149,7 @@ client.on("guildMemberRemove", async member => {
     color: 0x808080,
     title: `User Left:`,
     thumbnail: {
-      url: member.user.avatarURL
+      url: member.user.avatar
     },
     fields: [
       {
@@ -171,7 +171,7 @@ client.on("guildMemberAdd", async member => {
     color: 0x00FF00,
     title: `New User:`,
     thumbnail: {
-      url: member.user.avatarURL
+      url: member.user.avatar
     },
     fields: [
       {
@@ -431,7 +431,7 @@ client.on("message", async message => {
         color: 0xFF0000,
         title: `Kick Log:`,
         thumbnail: {
-          url: member.user.avatarURL
+          url: member.user.avatar
         },
         fields: [
           {
@@ -475,7 +475,7 @@ client.on("message", async message => {
         color: 0x000000,
         title: `Ban Log:`,
         thumbnail: {
-          url: member.user.avatarURL
+          url: member.user.avatar
         },
         fields: [
           {
@@ -510,7 +510,7 @@ client.on("message", async message => {
         color: 0xFFFF00,
         title: `Warn Log:`,
         thumbnail: {
-          url: member.user.avatarURL
+          url: member.user.avatar
         },
         fields: [
           {
@@ -545,7 +545,7 @@ client.on("message", async message => {
             color: 0xFF69B4,
             title: `${nickname}`,
             thumbnail: {
-              url: member.user.avatarURL
+              url: member.user.avatar
             },
             fields: [
               {
@@ -930,7 +930,7 @@ client.on("message", async message => {
       color: 0xFFA500,
       title: `Mute Log:`,
       thumbnail: {
-        url: member.user.avatarURL
+        url: member.user.avatar
       },
       fields: [
         {
@@ -965,7 +965,7 @@ client.on("message", async message => {
       color: 0x00FF00,
       title: `Unmute Log:`,
       thumbnail: {
-        url: member.user.avatarURL
+        url: member.user.avatar
       },
       fields: [
         {
@@ -999,11 +999,11 @@ client.on("message", async message => {
             color: 0xFF69B4,
             title: `${nickname}'s Avatar`,
             thumbnail: {
-              url: member.user.avatarURL(String)
+              url: member.user.avatar(String)
             },
             fields: [
               {
-                name: member.user.avatarURL(String),
+                name: member.user.avatar(String),
               }
             ],
           timestamp: new Date(),
@@ -1030,7 +1030,7 @@ client.on("message", async message => {
       color: 0xFF69B4,
       title: `${message.author.username} Deleted Message:`,
       thumbnail: {
-        url: messageAuthor.avatarURL(String)
+        url: messageAuthor.avatar(String)
       },
       fields: [
         {
