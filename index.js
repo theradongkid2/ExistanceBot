@@ -255,7 +255,7 @@ client.on("message", async message => {
                     value: `Usage: e!unmute @user [used to unmute members]`
                     },  
                     {
-                      name: `Snipe`,
+                      name: `Snipe (Removed)`,
                       value: `Usage: e!snipe [Show last deleted message and who sent it]`
                       },
         ],
@@ -791,6 +791,40 @@ client.on("message", async message => {
       message.channel.send({ embed: inviteEmbed });
     })
   }
+
+  if(command === "whatarechances"){
+    const args = message.content.split(' ');
+    var eventItem
+    args.forEach(element => {
+      var eventItem = eventItem + element;
+    });
+    fetch(`https://love-calculator.p.rapidapi.com/getPercentage?fname=${element}&sname=${"chances"}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "1c5b48d8cdmsh70098e9ec1b7eeap1dc730jsnb2f3060f371e",
+        "x-rapidapi-host": "love-calculator.p.rapidapi.com"
+	    }
+    }).then(function (response) {
+	    // The API call was successful!
+	    return response.json();
+    }).then(function (data){
+      var percentages = data.percentage;
+
+      const inviteEmbed = {
+        color: 0xF9E3EF,
+        title: `The chances of ${element} happening is:`,
+        description: `${percentages}%`,
+        
+        timestamp: new Date(),
+        footer: {
+            text: 'ExistenceBot by MasterKohder6',
+            icon_url: 'https://cdn.discordapp.com/avatars/819852916172914699/2124f2224385be3a5c390e9c9e106985.png?size=2048',
+        }
+      };
+      message.channel.send({ embed: inviteEmbed });
+    })
+  }
+
 
   if(command === "meme"){
     fetch(`https://some-random-api.ml/meme`).then(function (response) {
